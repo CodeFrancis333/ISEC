@@ -1793,3 +1793,156 @@ h1, h2, h3,
     font-size: 1.5rem;
   }
 }
+
+/* ===============================
+   LEGAL PAGES (PRIVACY, TERMS, COMPLIANCE)
+   =============================== */
+
+.legal-page {
+  padding: 80px 0 120px;
+  background-color: #f8f5f0;
+  font-family: "CMU Serif", "Georgia", serif;
+}
+
+.legal-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.legal-header {
+  margin-bottom: 2.5rem;
+}
+
+.legal-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  background-color: #590808;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 0.9rem;
+}
+
+.legal-title {
+  font-family: "CMU Concrete", "Times New Roman", serif;
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #590808;
+  margin-bottom: 0.3rem;
+}
+
+.legal-updated {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 1.2rem;
+}
+
+.legal-intro {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.legal-body {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 2rem;
+}
+
+.legal-body h2 {
+  font-family: "CMU Concrete", "Times New Roman", serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #590808;
+  margin-top: 1.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.legal-body p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 0.9rem;
+}
+
+.legal-body ul {
+  padding-left: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+
+.legal-body li {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 0.35rem;
+}
+
+.legal-link {
+  color: #590808;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.legal-link:hover {
+  color: #c9932f;
+}
+
+/* Page-specific subtle tweaks (optional) */
+.privacy-page .legal-title {
+  color: #590808;
+}
+
+.terms-page .legal-title {
+  color: #590808;
+}
+
+.compliance-page .legal-title {
+  color: #590808;
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+
+@media (max-width: 768px) {
+  .legal-page {
+    padding: 60px 0 80px;
+  }
+
+  .legal-title {
+    font-size: 1.6rem;
+  }
+
+  .legal-container {
+    padding: 0 1.2rem;
+  }
+
+  .legal-body h2 {
+    font-size: 1rem;
+  }
+
+  .legal-body p,
+  .legal-body li {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .legal-page {
+    padding-top: 50px;
+    padding-bottom: 70px;
+  }
+
+  .legal-title {
+    font-size: 1.4rem;
+  }
+
+  .legal-intro {
+    font-size: 0.9rem;
+  }
+}
