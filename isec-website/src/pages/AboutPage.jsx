@@ -2,6 +2,7 @@ import React from "react";
 import bgCore from "../assets/core-values-background.png";
 import wendiPic from "../assets/wendi.jfif";
 import edrickPic from "../assets/code.jpg";
+import { Link } from "react-router-dom";
 
 const AboutPage = () => {
   return (
@@ -26,7 +27,7 @@ const AboutPage = () => {
           in mind.
         </p>
         <br></br>
-        <a href="/services" className="about-link">Explore Ingeniare Services</a>
+        <Link to="/services" className="about-link">Explore Ingeniare Services</Link>
       </section>
 
       {/* ================== MISSION & VISION ================== */}
@@ -79,7 +80,7 @@ const AboutPage = () => {
           <li><strong className="cv-gold">SERVICE TO NATION –</strong> We align every project with public safety, sustainable growth, and the advancement of engineering practice in the Philippines.</li>
         </ul>
 
-        <a href="/portfolio" className="future-btn">VIEW OUR PORTFOLIO</a>
+        <Link to="/portfolio" className="future-btn">VIEW OUR PORTFOLIO</Link>
       </section>
 
       {/* ================== WHO WE SERVE / OUR PARTNERS ================== */}

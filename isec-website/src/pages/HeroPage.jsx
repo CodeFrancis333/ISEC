@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   FaPuzzlePiece,
@@ -43,8 +44,8 @@ const HeroPage = () => {
                 </p>
 
                 <div className="d-flex flex-wrap gap-3 mt-4">
-                  <a href="/services" className="btn-hero-outline">Our Services</a>
-                  <a href="/contact" className="btn-hero-solid">Contact Us</a>
+                  <Link to="/services" className="btn-hero-outline">Our Services</Link>
+                  <Link to="/contact" className="btn-hero-solid">Contact Us</Link>
                 </div>
 
                 <p style={{
@@ -90,8 +91,8 @@ const HeroPage = () => {
           </p>
 
           <div className="intro-buttons">
-            <a href="/about" className="btn-intro-outline">About Us</a>
-            <a href="/services" className="btn-intro-solid">Our Services</a>
+            <Link to="/about" className="btn-intro-outline">About Us</Link>
+            <Link to="/services" className="btn-intro-solid">Our Services</Link>
           </div>
         </div>
       </section>
@@ -164,7 +165,7 @@ const HeroPage = () => {
                     </p>
                   </div>
 
-                <a href="/portfolio" className="btn-why-resources">View Ingeniare Resources</a>
+                <Link to="/portfolio" className="btn-why-resources">View Ingeniare Resources</Link>
                 <div className="why-choose-caption">
                   View past projects &amp; feedbacks
                 </div>
@@ -263,7 +264,7 @@ const HeroPage = () => {
             <p className="home-cta-subtitle">
               Learn about our frameworks in design, coordination, and advanced engineering.
             </p>
-            <a href="/services" className="btn-cta-white">Our Services</a>
+            <Link to="/services" className="btn-cta-white">Our Services</Link>
           </div>
 
           {/* Partner with us */}
@@ -278,7 +279,7 @@ const HeroPage = () => {
               If your firm seeks a structural partner to enhance capability, 
               reduce cost, and ensure quality, we’d love to connect.
             </p>
-            <a href="/contact" className="btn-cta-outline-gold">Contact Us</a>
+            <Link to="/contact" className="btn-cta-outline-gold">Contact Us</Link>
           </div>
 
           {/* Certifications */}

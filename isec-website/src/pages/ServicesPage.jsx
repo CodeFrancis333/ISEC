@@ -7,6 +7,7 @@ import {
   FaHandshake,
   FaShieldAlt,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const serviceBlocks = [
   {
@@ -188,12 +189,12 @@ const ServicesPage = () => {
               </ul>
 
               <div className="service-actions">
-                <a href="/contact" className="service-btn primary">
+                <Link to="/contact" className="service-btn primary">
                   Inquire Service
-                </a>
-                <a href="/portfolio" className="service-btn ghost">
+                </Link>
+                <Link to="/portfolio" className="service-btn ghost">
                   View Portfolio
-                </a>
+                </Link>
               </div>
             </div>
           </motion.section>

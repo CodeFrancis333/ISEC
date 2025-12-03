@@ -156,18 +156,17 @@ const ContactPage = () => {
                 Contact Details
               </h2>
               <p className="small mb-2">
-                <strong>Email:</strong> youremail@isec.ph (replace with official)
+                <strong>Email:</strong> ingeniare.idc@gmail.com
               </p>
               <p className="small mb-2">
-                <strong>Mobile / Viber:</strong> +63 xxx xxx xxxx
+                <strong>Mobile / Viber:</strong> +63 951 235 9772
               </p>
               <p className="small mb-2">
-                <strong>Location:</strong> (Municipality / City, Province, Philippines)
+                <strong>Location:</strong> (Malabanban Norte, Candelaria Quezon, Philippines)
               </p>
               <hr />
               <p className="small text-muted mb-0">
-                Optionally embed your QR code, Facebook page, or LinkedIn link here to mirror your
-                Canva contact page.
+                Scan our QR code, Facebook page, or LinkedIn link here...
               </p>
             </motion.div>
           </div>
