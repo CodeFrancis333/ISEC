@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 const PrivacyPolicyPage = () => {
   return (
@@ -97,9 +98,9 @@ const PrivacyPolicyPage = () => {
           <p>
             For questions about this Privacy Policy or how we handle data, you
             may reach us through our{" "}
-            <a href="/contact" className="legal-link">
+            <Link to="/contact" className="legal-link">
               Contact page
-            </a>
+            </Link>
             .
           </p>
         </div>

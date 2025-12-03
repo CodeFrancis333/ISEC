@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 const TermsOfServicePage = () => {
   return (
@@ -86,9 +87,9 @@ const TermsOfServicePage = () => {
           <h2>7. Contact</h2>
           <p>
             For clarifications about these Terms, you may reach us via our{" "}
-            <a href="/contact" className="legal-link">
+            <Link to="/contact" className="legal-link">
               Contact page
-            </a>
+            </Link>
             .
           </p>
         </div>

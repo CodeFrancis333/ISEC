@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 const EngineeringCompliancePage = () => {
   return (
@@ -104,9 +105,9 @@ const EngineeringCompliancePage = () => {
             For more information about our compliance practices or to request
             documentation related to a specific project, you may reach us
             through our{" "}
-            <a href="/contact" className="legal-link">
+            <Link to="/contact" className="legal-link">
               Contact page
-            </a>
+            </Link>
             .
           </p>
         </div>
