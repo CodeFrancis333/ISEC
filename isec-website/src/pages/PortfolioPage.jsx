@@ -10,6 +10,7 @@ import {
   FaChevronLeft,
   FaChevronRight,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 // You can later replace image paths with real ones in /src/assets
 const projects = [
@@ -398,12 +399,12 @@ const PortfolioPage = () => {
           </h2>
 
           <div className="portfolio-cta-actions">
-            <a href="/contact" className="portfolio-cta-btn-gold">
+            <Link to="/contact" className="portfolio-cta-btn-gold">
               Partner With Us
-            </a>
-            <a href="/contact" className="portfolio-cta-btn-maroon">
+            </Link>
+            <Link to="/contact" className="portfolio-cta-btn-maroon">
               Send Project Inquiry
-            </a>
+            </Link>
           </div>
         </section>
       </div>
