@@ -1,0 +1,14 @@
+# === Backend (Django) ===
+isec-backend/venv/
+isec-backend/.env
+isec-backend/**/__pycache__/
+isec-backend/*.sqlite3
+
+# === Frontend (React / Vite) ===
+isec-website/node_modules/
+isec-website/dist/
+
+# === OS / Editor ===
+.vscode/
+.DS_Store
+Thumbs.db

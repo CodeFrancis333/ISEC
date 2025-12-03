@@ -1,0 +1,15 @@
+:root {
+  --isec-maroon: #590808;
+  --isec-gold: #f3cb49;
+
+  --isec-bg: #ffffff;
+  --isec-surface: #ffffff;
+  --isec-text: #2b1a1a;
+  --isec-muted: #7a5f5f;
+
+  --isec-heading-font: "CMU Concrete", "Playfair Display", serif;
+  --isec-body-font: "CMU Serif", "Lora", serif;
+
+  --isec-radius-lg: 18px;
+  --isec-shadow-soft: 0 14px 40px rgba(0, 0, 0, 0.12);
+}
