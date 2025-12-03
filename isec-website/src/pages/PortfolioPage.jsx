@@ -496,13 +496,13 @@ const PortfolioPage = () => {
 
                     {/* Bottom buttons */}
                     <div className="modal-actions">
-                      <Button
+                      <Link
                         variant="link"
                         className="modal-link-btn"
-                        href="/contact"
+                        to="/contact"
                       >
                         Request Company Profile
-                      </Button>
+                      </Link>
                       <Button
                         variant="outline-secondary"
                         className="modal-close-btn"
