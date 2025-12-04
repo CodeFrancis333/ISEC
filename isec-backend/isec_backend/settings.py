@@ -148,7 +148,10 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# -----------------------------
 # Email / SendGrid configuration
+# -----------------------------
+
 EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
 
 DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
@@ -156,9 +159,7 @@ INQUIRY_RECEIVER_EMAIL = env("INQUIRY_RECEIVER_EMAIL")
 
 ANYMAIL = {
     "SENDGRID_API_KEY": env("SENDGRID_API_KEY"),
+    "DEBUG_API_REQUESTS": True,  # optional but helpful
 }
-
-# Debugging (optional)
-ANYMAIL["DEBUG_API_REQUESTS"] = True
 
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
