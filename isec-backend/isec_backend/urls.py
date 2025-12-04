@@ -18,6 +18,16 @@ from django.contrib import admin
 from django.http import HttpResponse
 from django.urls import path
 from contact.views import send_inquiry
+from django.http import JsonResponse
+
+def health(request):
+    return JsonResponse({"status": "ok"}, status=200)
+
+urlpatterns = [
+    path("health/", health),
+    path("api/", include("contact.urls")),
+]
+
 
 def home(request):
     return HttpResponse("ISEC Backend API is running.")
