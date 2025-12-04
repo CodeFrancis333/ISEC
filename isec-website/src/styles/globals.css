@@ -603,8 +603,8 @@ body {
 /* DEFAULT NAVBAR STYLE */
 .isec-navbar {
   background-color: #590808;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   transition: background-color 0.3s ease, padding 0.3s ease;
 }
 
@@ -614,6 +614,17 @@ body {
   backdrop-filter: blur(6px);
   padding-top: 20px;       /* shrink navbar smoothly */
   padding-bottom: 20px;
+}
+
+.isec-navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* spacing between logo and text */
+}
+
+.isec-navbar-logo {
+  height: 40px;      /* adjust size here (bigger or smaller) */
+  width: auto;
 }
 
 /* BRAND TEXT (original white) */

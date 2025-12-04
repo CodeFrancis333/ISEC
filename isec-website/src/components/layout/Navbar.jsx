@@ -27,6 +27,11 @@ const IsecNavbar = () => {
       <Container>
 
         <Navbar.Brand href="/" className="isec-navbar-brand">
+          <img 
+            src="/Ingeniare-Logo.png"
+            alt="ISEC Logo"
+            className="isec-navbar-logo" 
+          />
           ISEC | Ingeniare Structural Engineering Consultancy
         </Navbar.Brand>
 
