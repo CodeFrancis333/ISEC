@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const IsecNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -26,7 +26,7 @@ const IsecNavbar = () => {
     >
       <Container>
 
-        <Navbar.Brand href="/" className="isec-navbar-brand">
+        <Navbar.Brand as={Link} to="/" className="isec-navbar-brand">
           <img 
             src="/Ingeniare-Logo.png"
             alt="ISEC Logo"
