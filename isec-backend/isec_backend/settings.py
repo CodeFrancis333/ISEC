@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'contact',
+    "anymail",
 ]
 
 MIDDLEWARE = [
@@ -62,7 +63,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = False
+
+CORS_ALLOWED_ORIGINS = [
+    "https://isec-website.netlify.app",
+]
+
+# ----------------------------------------
+# EMAIL / SENDGRID CONFIGURATION
+# ----------------------------------------
+
 
 ROOT_URLCONF = 'isec_backend.urls'
 
@@ -138,13 +148,17 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#Email Configuration
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+# Email / SendGrid configuration
+EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
 
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
+INQUIRY_RECEIVER_EMAIL = env("INQUIRY_RECEIVER_EMAIL")
 
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+ANYMAIL = {
+    "SENDGRID_API_KEY": env("SENDGRID_API_KEY"),
+}
+
+# Debugging (optional)
+ANYMAIL["DEBUG_API_REQUESTS"] = True
+
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
