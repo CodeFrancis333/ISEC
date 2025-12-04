@@ -20,6 +20,11 @@ const Footer = () => {
           {/* Brand + socials */}
           <Col md={4}>
             <div className="footer-brand">
+              <img 
+                src="/Ingeniare-Logo.png"
+                alt="ISEC Logo"
+                className="isec-navbar-logo" 
+              />
               <div className="footer-brand-title">INGENIARE</div>
               <div className="footer-brand-sub">
                 STRUCTURAL ENGINEERING CONSULTANCY
