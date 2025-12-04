@@ -27,10 +27,10 @@ const ContactPage = () => {
     try {
       const res = await fetch(`${API_BASE_URL}/api/contact/`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json" },  
         body: JSON.stringify(formData),
       });
-
+      
       if (!res.ok) throw new Error("Network error");
 
       setStatus("success");
