@@ -65,7 +65,7 @@ MIDDLEWARE = [
 CORS_ALLOW_ALL_ORIGINS = False
 
 CORS_ALLOWED_ORIGINS = [
-    "https://isec-website.netlify.app/",
+    "https://isec-website.netlify.app",
 ]
 
 ROOT_URLCONF = 'isec_backend.urls'
