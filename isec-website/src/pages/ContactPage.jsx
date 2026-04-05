@@ -1,59 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion as Motion } from "framer-motion";
 
 const FORM_NAME = "contact";
 
 const ContactPage = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    organization: "",
-    projectBrief: "",
-    "bot-field": "",
-  });
-  const [status, setStatus] = useState(null);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("sending");
-
-    try {
-      const payload = new URLSearchParams({
-        "form-name": FORM_NAME,
-        ...formData,
-      });
-
-      const res = await fetch("/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: payload.toString(),
-      });
-
-      if (!res.ok) throw new Error("Network error");
-
-      setStatus("success");
-      setFormData({
-        name: "",
-        email: "",
-        organization: "",
-        projectBrief: "",
-        "bot-field": "",
-      });
-    } catch (err) {
-      console.error(err);
-      setStatus("error");
-    }
-  };
-
   return (
     <section className="section">
       <div className="container">
@@ -90,86 +40,77 @@ const ContactPage = () => {
               <form
                 name={FORM_NAME}
                 method="POST"
+                action="/thank-you"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
-                onSubmit={handleSubmit}
               >
                 <input type="hidden" name="form-name" value={FORM_NAME} />
-                <input
-                  type="hidden"
-                  name="bot-field"
-                  value={formData["bot-field"]}
-                  onChange={handleChange}
-                />
+
+                <p className="d-none">
+                  <label>
+                    Don&apos;t fill this out if you&apos;re human:
+                    <input name="bot-field" />
+                  </label>
+                </p>
+
                 <div className="mb-3">
-                  <label className="form-label">Name</label>
+                  <label className="form-label" htmlFor="contact-name">
+                    Name
+                  </label>
                   <input
+                    id="contact-name"
                     type="text"
                     className="form-control"
                     name="name"
-                    value={formData.name}
-                    onChange={handleChange}
                     placeholder="Your full name"
                     required
                   />
                 </div>
 
                 <div className="mb-3">
-                  <label className="form-label">Email</label>
+                  <label className="form-label" htmlFor="contact-email">
+                    Email
+                  </label>
                   <input
+                    id="contact-email"
                     type="email"
                     className="form-control"
                     name="email"
-                    value={formData.email}
-                    onChange={handleChange}
                     placeholder="you@example.com"
                     required
                   />
                 </div>
 
                 <div className="mb-3">
-                  <label className="form-label">Organization / Firm</label>
+                  <label className="form-label" htmlFor="contact-org">
+                    Organization / Firm
+                  </label>
                   <input
+                    id="contact-org"
                     type="text"
                     className="form-control"
                     name="organization"
-                    value={formData.organization}
-                    onChange={handleChange}
                     placeholder="Company / LGU / Developer"
                   />
                 </div>
 
                 <div className="mb-3">
-                  <label className="form-label">Project Brief</label>
+                  <label className="form-label" htmlFor="contact-brief">
+                    Project Brief
+                  </label>
                   <textarea
+                    id="contact-brief"
                     className="form-control"
                     rows="4"
                     name="projectBrief"
-                    value={formData.projectBrief}
-                    onChange={handleChange}
                     placeholder="Short description of your project and what structural help you need."
                     required
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  className="btn-isec-primary"
-                  disabled={status === "sending"}
-                >
-                  {status === "sending" ? "Sending..." : "Submit Inquiry"}
+                <button type="submit" className="btn-isec-primary">
+                  Submit Inquiry
                 </button>
-
-                {status === "success" && (
-                  <p className="small mt-2 text-success">
-                    Thank you! Your inquiry has been sent.
-                  </p>
-                )}
-                {status === "error" && (
-                  <p className="small mt-2 text-danger">
-                    Something went wrong. Please try again.
-                  </p>
-                )}
               </form>
             </Motion.div>
           </div>
