@@ -17,13 +17,12 @@ const Footer = () => {
     <footer className="isec-footer">
       <Container>
         <Row className="gy-4">
-          {/* Brand + socials */}
           <Col md={4}>
             <div className="footer-brand">
-              <img 
+              <img
                 src="/Ingeniare-Logo.png"
                 alt="ISEC Logo"
-                className="isec-navbar-logo" 
+                className="isec-navbar-logo"
               />
               <div className="footer-brand-title">INGENIARE</div>
               <div className="footer-brand-sub">
@@ -60,7 +59,6 @@ const Footer = () => {
             </div>
           </Col>
 
-          {/* Explore + Engage */}
           <Col md={3}>
             <div className="footer-column-title">Explore</div>
             <ul className="footer-links">
@@ -98,7 +96,6 @@ const Footer = () => {
             </ul>
           </Col>
 
-          {/* Contact info */}
           <Col md={3}>
             <div className="footer-column-title">Contact Information</div>
             <ul className="footer-contact">
@@ -133,13 +130,12 @@ const Footer = () => {
                 <div>
                   Office Hours:
                   <br />
-                  Monday – Saturday, 9:00 AM – 5:00 PM (PHT)
+                  Monday - Saturday, 9:00 AM - 5:00 PM (PHT)
                 </div>
               </li>
             </ul>
           </Col>
 
-          {/* Legal documents */}
           <Col md={2}>
             <div className="footer-column-title">Legal Documents</div>
             <ul className="footer-links">
@@ -150,7 +146,9 @@ const Footer = () => {
                 <NavLink to="/terms-of-service">Terms of Service</NavLink>
               </li>
               <li>
-                <NavLink to="/engineering-compliance-statements">Engineering Compliance Statements</NavLink>
+                <NavLink to="/engineering-compliance-statements">
+                  Engineering Compliance Statements
+                </NavLink>
               </li>
             </ul>
           </Col>
@@ -159,7 +157,8 @@ const Footer = () => {
         <hr className="footer-divider" />
 
         <div className="footer-bottom">
-          © {year} Ingeniare Structural Engineering Consultancy. All rights reserved.
+          Copyright {year} Ingeniare Structural Engineering Consultancy. All
+          rights reserved.
         </div>
       </Container>
     </footer>

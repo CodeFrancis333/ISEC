@@ -1,6 +1,5 @@
-// src/pages/ServicesPage.jsx
 import React from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import {
   FaDraftingCompass,
   FaUniversity,
@@ -108,7 +107,6 @@ const serviceBlocks = [
   },
 ];
 
-// FULL-WIDTH METRICS SECTION
 const metrics = [
   {
     icon: FaDraftingCompass,
@@ -139,12 +137,8 @@ const metrics = [
 const ServicesPage = () => {
   return (
     <section className="services-page">
-
-      {/* MAIN CONTENT CONTAINER */}
       <div className="services-container">
-
-        {/* Page heading */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -161,11 +155,10 @@ const ServicesPage = () => {
             code-compliant analysis, clear documentation, and practical
             solutions.
           </p>
-        </motion.div>
+        </Motion.div>
 
-        {/* Service Blocks */}
         {serviceBlocks.map((service, index) => (
-          <motion.section
+          <Motion.section
             key={service.title}
             className="service-block"
             initial={{ opacity: 0, y: 30 }}
@@ -197,13 +190,11 @@ const ServicesPage = () => {
                 </Link>
               </div>
             </div>
-          </motion.section>
+          </Motion.section>
         ))}
+      </div>
 
-      </div> {/* END services-container */}
-
-      {/* FULL-WIDTH METRICS SECTION */}
-      <motion.section
+      <Motion.section
         className="services-metrics"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -213,7 +204,9 @@ const ServicesPage = () => {
           const Icon = metric.icon;
           return (
             <div className="services-metric-item" key={metric.line1}>
-              <div className="services-metric-icon"><Icon /></div>
+              <div className="services-metric-icon">
+                <Icon />
+              </div>
               <div className="services-metric-value">{metric.value}</div>
               <div className="services-metric-text">
                 <span>{metric.line1}</span>
@@ -222,8 +215,7 @@ const ServicesPage = () => {
             </div>
           );
         })}
-      </motion.section>
-
+      </Motion.section>
     </section>
   );
 };

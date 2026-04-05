@@ -1,6 +1,5 @@
-// src/pages/PortfolioPage.jsx
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { Modal, Button, Row, Col } from "react-bootstrap";
 import {
   FaDraftingCompass,
@@ -12,23 +11,18 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-// You can later replace image paths with real ones in /src/assets
 const projects = [
   {
     id: 1,
     category: "Building Structures",
-    name: "5-Storey Mixed-Use RC Building – Quezon Province",
+    name: "5-Storey Mixed-Use RC Building - Quezon Province",
     scope: "Full structural analysis & design (NSCP 2015, ACI 318, AISC 360).",
     status: "ongoing",
     date: "2025",
     location: "Quezon Province, Philippines",
     description:
       "A mid-rise mixed-use building designed for commercial and residential occupancy. Ingeniare handled complete structural modeling, code checks, and reinforcement detailing, coordinating closely with the architectural team.",
-    images: [
-      "/assets/portfolio/building-1a.jpg",
-      "/assets/portfolio/building-1b.jpg",
-      "/assets/portfolio/building-1c.jpg",
-    ],
+    images: [],
   },
   {
     id: 2,
@@ -41,10 +35,7 @@ const projects = [
     location: "Sariaya, Quezon",
     description:
       "Comprehensive evaluation of an existing public market structure, including on-site inspection, structural re-analysis, and preparation of recommendations for strengthening and life extension.",
-    images: [
-      "/assets/portfolio/market-1a.jpg",
-      "/assets/portfolio/market-1b.jpg",
-    ],
+    images: [],
   },
   {
     id: 3,
@@ -57,11 +48,7 @@ const projects = [
     location: "Manila, Philippines",
     description:
       "Concrete health assessment of an aging condotel structure to support retrofit and reuse decisions. Combined NDT techniques with analytical modeling to estimate in-situ strength and durability.",
-    images: [
-      "/assets/portfolio/ndt-1a.jpg",
-      "/assets/portfolio/ndt-1b.jpg",
-      "/assets/portfolio/ndt-1c.jpg",
-    ],
+    images: [],
   },
   {
     id: 4,
@@ -74,7 +61,7 @@ const projects = [
     location: "Quezon Province, Philippines",
     description:
       "Study and preliminary design of slope protection and riverbank structures to mitigate erosion and flooding risks for nearby communities.",
-    images: ["/assets/portfolio/slope-1a.jpg"],
+    images: [],
   },
   {
     id: 5,
@@ -87,7 +74,7 @@ const projects = [
     location: "LGU Project",
     description:
       "Verification and optimization of solar-powered CCTV pole foundations to ensure adequate safety against overturning, uplift, and serviceability issues.",
-    images: ["/assets/portfolio/cctv-1a.jpg", "/assets/portfolio/cctv-1b.jpg"],
+    images: [],
   },
   {
     id: 6,
@@ -100,7 +87,7 @@ const projects = [
     location: "Educational / Internal",
     description:
       "Development of teaching-oriented structural models and design templates to support civil engineering students and reviewees.",
-    images: ["/assets/portfolio/edu-1a.jpg"],
+    images: [],
   },
   {
     id: 7,
@@ -112,7 +99,7 @@ const projects = [
     location: "Ingeniare R&D",
     description:
       "Ongoing research to transform NDT readings into a structured Concrete Health Index that can guide retrofit decisions and long-term monitoring.",
-    images: ["/assets/portfolio/rd-1a.jpg", "/assets/portfolio/rd-1b.jpg"],
+    images: [],
   },
   {
     id: 8,
@@ -125,11 +112,10 @@ const projects = [
     location: "Confidential Client",
     description:
       "Evaluation of multiple retrofit strategies for an existing structure, balancing cost, constructability, and target performance levels.",
-    images: ["/assets/portfolio/retrofit-1a.jpg"],
+    images: [],
   },
 ];
 
-// FULL-WIDTH METRICS SECTION
 const metrics = [
   {
     icon: FaDraftingCompass,
@@ -157,23 +143,22 @@ const metrics = [
   },
 ];
 
-// CLIENT TESTIMONIALS
 const testimonials = [
   {
     id: 1,
     name: "Principal Architect",
     company: "ABC Consultancy",
     position: "Lead Architect",
-    logo: "/assets/testimonials/client-abc.png",
+    logo: null,
     feedback:
-      "Ingeniare’s design documentation was complete, clear, and well-coordinated with our architectural set. They delivered ahead of our internal deadline.",
+      "Ingeniare's design documentation was complete, clear, and well-coordinated with our architectural set. They delivered ahead of our internal deadline.",
   },
   {
     id: 2,
     name: "Project Manager",
     company: "XYZ Builders",
     position: "Construction Project Manager",
-    logo: "/assets/testimonials/client-xyz.png",
+    logo: null,
     feedback:
       "The team was highly responsive and detail-oriented. Their structural solutions helped us optimize material usage without compromising safety.",
   },
@@ -182,7 +167,7 @@ const testimonials = [
     name: "Municipal Engineer",
     company: "LGU Sariaya",
     position: "Municipal Engineer",
-    logo: "/assets/testimonials/client-lgu.png",
+    logo: null,
     feedback:
       "Ingeniare provided clear evaluation reports and retrofit options that were easy to present to decision-makers and council members.",
   },
@@ -225,9 +210,8 @@ const PortfolioPage = () => {
 
   return (
     <section className="section portfolio-page">
-      {/* TITLE + INTRO (inside container) */}
       <div className="container">
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -235,16 +219,16 @@ const PortfolioPage = () => {
           <h1 className="portfolio-title">Portfolio</h1>
           <div className="portfolio-title-underline" />
           <p className="portfolio-intro">
-            A curated snapshot of Ingeniare’s work across building structures, LGU and
-            government projects, NDT-based concrete assessment, and research-driven
-            engineering initiatives. Each project reflects our commitment to safety,
-            code-compliance, and future-ready design.
+            A curated snapshot of Ingeniare&apos;s work across building
+            structures, LGU and government projects, NDT-based concrete
+            assessment, and research-driven engineering initiatives. Each
+            project reflects our commitment to safety, code-compliance, and
+            future-ready design.
           </p>
-        </motion.div>
+        </Motion.div>
       </div>
 
-      {/* STATS STRIP – full-width */}
-      <motion.section
+      <Motion.section
         className="portfolio-metrics"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -265,14 +249,13 @@ const PortfolioPage = () => {
             </div>
           );
         })}
-      </motion.section>
+      </Motion.section>
 
-      {/* PROJECT CARDS */}
       <div className="container">
         <div className="row mt-4 gy-4">
           {visibleProjects.map((project, index) => (
             <div className="col-md-6" key={project.id}>
-              <motion.div
+              <Motion.div
                 className="portfolio-card"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -293,9 +276,7 @@ const PortfolioPage = () => {
                   <span className="portfolio-status">
                     {project.status === "ongoing" ? "Ongoing" : "Completed"}
                   </span>
-                  <span className="portfolio-location">
-                    {project.location}
-                  </span>
+                  <span className="portfolio-location">{project.location}</span>
                 </div>
 
                 <p className="portfolio-scope">
@@ -309,12 +290,11 @@ const PortfolioPage = () => {
                 >
                   View Project Details
                 </button>
-              </motion.div>
+              </Motion.div>
             </div>
           ))}
         </div>
 
-        {/* VIEW MORE / VIEW LESS */}
         {projects.length > INITIAL_LIMIT && (
           <div className="portfolio-more-wrapper">
             {!showAll ? (
@@ -323,7 +303,7 @@ const PortfolioPage = () => {
                 className="portfolio-more-btn"
                 onClick={() => setShowAll(true)}
               >
-                … View more projects
+                ... View more projects
               </button>
             ) : (
               <button
@@ -337,7 +317,6 @@ const PortfolioPage = () => {
           </div>
         )}
 
-        {/* CLIENT FEEDBACK / TESTIMONIALS */}
         {currentTestimonial && (
           <section className="portfolio-testimonials">
             <h2 className="testimonial-heading">
@@ -347,7 +326,6 @@ const PortfolioPage = () => {
             <div className="testimonial-underline" />
 
             <div className="testimonial-content">
-
               <div className="testimonial-center">
                 <div className="testimonial-avatar">
                   {currentTestimonial.logo ? (
@@ -356,17 +334,15 @@ const PortfolioPage = () => {
                       alt={currentTestimonial.company}
                     />
                   ) : (
-                    <div className="testimonial-avatar-placeholder">
-                      Logo
-                    </div>
+                    <div className="testimonial-avatar-placeholder">Logo</div>
                   )}
                 </div>
 
                 <p className="testimonial-quote">
-                  “{currentTestimonial.feedback}”
+                  &quot;{currentTestimonial.feedback}&quot;
                 </p>
                 <p className="testimonial-author">
-                  — {currentTestimonial.position}, {currentTestimonial.company}
+                  - {currentTestimonial.position}, {currentTestimonial.company}
                 </p>
               </div>
               <div className="testimonial-btn-container">
@@ -391,7 +367,6 @@ const PortfolioPage = () => {
           </section>
         )}
 
-        {/* READY TO COLLABORATE CTA */}
         <section className="portfolio-cta">
           <h2 className="portfolio-cta-heading">
             READY TO COLLABORATE FOR <br />
@@ -409,7 +384,6 @@ const PortfolioPage = () => {
         </section>
       </div>
 
-      {/* MODAL */}
       <Modal
         show={!!selectedProject}
         onHide={handleCloseModal}
@@ -442,7 +416,6 @@ const PortfolioPage = () => {
 
             <Modal.Body>
               <Row className="gy-4">
-                {/* LEFT: TEXT */}
                 <Col md={6}>
                   <div className="modal-text-block">
                     <p className="modal-scope">
@@ -455,13 +428,11 @@ const PortfolioPage = () => {
                   </div>
                 </Col>
 
-                {/* RIGHT: IMAGES */}
                 <Col md={6}>
                   <div className="modal-images-block">
                     {selectedProject.images &&
                     selectedProject.images.length > 0 ? (
                       <>
-                        {/* Big active image */}
                         <div className="modal-image-main">
                           <img
                             src={selectedProject.images[activeImageIndex]}
@@ -469,7 +440,6 @@ const PortfolioPage = () => {
                           />
                         </div>
 
-                        {/* Thumbnails */}
                         <div className="modal-thumbs">
                           {selectedProject.images.map((img, idx) => (
                             <button
@@ -489,18 +459,11 @@ const PortfolioPage = () => {
                         </div>
                       </>
                     ) : (
-                      <p className="no-images-text">
-                        Project images to follow.
-                      </p>
+                      <p className="no-images-text">Project images to follow.</p>
                     )}
 
-                    {/* Bottom buttons */}
                     <div className="modal-actions">
-                      <Link
-                        variant="link"
-                        className="modal-link-btn"
-                        to="/contact"
-                      >
+                      <Link className="modal-link-btn" to="/contact">
                         Request Company Profile
                       </Link>
                       <Button

@@ -1,11 +1,18 @@
 import json
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from django.core.mail import send_mail
-from django.conf import settings
 import logging
 
+from django.conf import settings
+from django.core.exceptions import ValidationError
+from django.core.mail import EmailMessage
+from django.core.validators import validate_email
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
 logger = logging.getLogger(__name__)
+
+
+def _clean_text(value):
+    return str(value or "").strip()
 
 
 @csrf_exempt
@@ -13,52 +20,62 @@ def send_inquiry(request):
     if request.method != "POST":
         return JsonResponse({"error": "Only POST allowed"}, status=405)
 
-    # Parse JSON safely
     try:
         data = json.loads(request.body)
     except json.JSONDecodeError:
         return JsonResponse({"error": "Invalid JSON format"}, status=400)
 
-    # Extract fields
-    name = data.get("name", "").strip()
-    email = data.get("email", "").strip()
-    organization = data.get("organization", "").strip()
-    project_brief = data.get("projectBrief", "").strip()
+    name = _clean_text(data.get("name"))
+    email = _clean_text(data.get("email"))
+    organization = _clean_text(data.get("organization"))
+    project_brief = _clean_text(data.get("projectBrief"))
 
-    # Quick validation
-    if not name or not email:
-        return JsonResponse({"error": "Name and email are required"}, status=400)
+    if not name or not email or not project_brief:
+        return JsonResponse(
+            {"error": "Name, email, and project brief are required"},
+            status=400,
+        )
 
-    # Build email content
+    try:
+        validate_email(email)
+    except ValidationError:
+        return JsonResponse({"error": "A valid email is required"}, status=400)
+
+    recipient = _clean_text(getattr(settings, "INQUIRY_RECEIVER_EMAIL", ""))
+    from_email = _clean_text(getattr(settings, "DEFAULT_FROM_EMAIL", ""))
+
+    if not recipient or not from_email:
+        logger.error("Inquiry email configuration is incomplete.")
+        return JsonResponse(
+            {"error": "Server email configuration error"},
+            status=500,
+        )
+
     subject = f"New Inquiry from {name} - ISEC Website"
     message = (
         f"Name: {name}\n"
         f"Email: {email}\n"
-        f"Organization: {organization}\n\n"
+        f"Organization: {organization or 'Not provided'}\n\n"
         f"Project Brief:\n{project_brief}\n"
     )
 
-    # Recipient (hidden in environment variables)
-    recipient = getattr(settings, "INQUIRY_RECEIVER_EMAIL", None)
-
-    if not recipient:
-        logger.error("INQUIRY_RECEIVER_EMAIL not set in environment variables.")
-        return JsonResponse(
-            {"error": "Server email configuration error"}, status=500
-        )
-
-    # Attempt to send email
     try:
-        send_mail(
+        email_message = EmailMessage(
             subject=subject,
-            message=message,
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=[recipient],
+            body=message,
+            from_email=from_email,
+            to=[recipient],
+            reply_to=[email],
         )
-    except Exception as e:
-        logger.error(f"Email sending failed: {e}")
+        email_message.send()
+    except Exception as exc:
+        logger.exception("Email sending failed: %s", exc)
         return JsonResponse(
-            {"error": "Failed to send inquiry email"}, status=500
+            {"error": "Failed to send inquiry email"},
+            status=500,
         )
 
-    return JsonResponse({"success": True, "message": "Inquiry sent successfully!"})
+    return JsonResponse(
+        {"success": True, "message": "Inquiry sent successfully!"},
+        status=200,
+    )

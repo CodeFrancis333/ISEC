@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const FORM_NAME = "contact";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -9,9 +9,9 @@ const ContactPage = () => {
     email: "",
     organization: "",
     projectBrief: "",
+    "bot-field": "",
   });
-
-  const [status, setStatus] = useState(null); // "sending" | "success" | "error"
+  const [status, setStatus] = useState(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -25,12 +25,19 @@ const ContactPage = () => {
     setStatus("sending");
 
     try {
-      const res = await fetch(`${API_BASE_URL}/api/contact/`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },  
-        body: JSON.stringify(formData),
+      const payload = new URLSearchParams({
+        "form-name": FORM_NAME,
+        ...formData,
       });
-      
+
+      const res = await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: payload.toString(),
+      });
+
       if (!res.ok) throw new Error("Network error");
 
       setStatus("success");
@@ -39,6 +46,7 @@ const ContactPage = () => {
         email: "",
         organization: "",
         projectBrief: "",
+        "bot-field": "",
       });
     } catch (err) {
       console.error(err);
@@ -49,21 +57,22 @@ const ContactPage = () => {
   return (
     <section className="section">
       <div className="container">
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           <h1 className="section-title">Contact & Inquiries</h1>
           <p className="section-subtitle">
-            Tell us about your project, and we&apos;ll help you decide how ISEC can serve as your
-            structural engineering department or verification partner.
+            Tell us about your project, and we&apos;ll help you decide how ISEC
+            can serve as your structural engineering department or verification
+            partner.
           </p>
-        </motion.div>
+        </Motion.div>
 
         <div className="row mt-4 gy-4">
           <div className="col-lg-6">
-            <motion.div
+            <Motion.div
               className="card-isec p-4 h-100"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -73,7 +82,25 @@ const ContactPage = () => {
                 Send a Message
               </h2>
 
-              <form onSubmit={handleSubmit}>
+              <p className="small text-muted">
+                This form submits through Netlify and can forward inquiries to
+                your Gmail notification address.
+              </p>
+
+              <form
+                name={FORM_NAME}
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+              >
+                <input type="hidden" name="form-name" value={FORM_NAME} />
+                <input
+                  type="hidden"
+                  name="bot-field"
+                  value={formData["bot-field"]}
+                  onChange={handleChange}
+                />
                 <div className="mb-3">
                   <label className="form-label">Name</label>
                   <input
@@ -122,7 +149,7 @@ const ContactPage = () => {
                     onChange={handleChange}
                     placeholder="Short description of your project and what structural help you need."
                     required
-                  ></textarea>
+                  />
                 </div>
 
                 <button
@@ -144,11 +171,11 @@ const ContactPage = () => {
                   </p>
                 )}
               </form>
-            </motion.div>
+            </Motion.div>
           </div>
 
           <div className="col-lg-6">
-            <motion.div
+            <Motion.div
               className="card-isec p-4 h-100"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -164,13 +191,15 @@ const ContactPage = () => {
                 <strong>Mobile / Viber:</strong> +63 951 235 9772
               </p>
               <p className="small mb-2">
-                <strong>Location:</strong> (Malabanban Norte, Candelaria Quezon, Philippines)
+                <strong>Location:</strong> Malabanban Norte, Candelaria,
+                Quezon, Philippines
               </p>
               <hr />
               <p className="small text-muted mb-0">
-                Scan our QR code, Facebook page, or LinkedIn link here...
+                If you prefer, you may also reach out through our Facebook page
+                or LinkedIn.
               </p>
-            </motion.div>
+            </Motion.div>
           </div>
         </div>
       </div>
