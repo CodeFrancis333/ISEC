@@ -10,6 +10,7 @@ import {
   FaChevronRight,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Seo from "../components/seo/Seo.jsx";
 
 const projects = [
   {
@@ -209,8 +210,20 @@ const PortfolioPage = () => {
   };
 
   return (
-    <section className="section portfolio-page">
-      <div className="container">
+    <>
+      <Seo
+        title="Portfolio | Structural Engineering Projects by Ingeniare"
+        description="Review Ingeniare's portfolio of structural engineering projects, including building design, LGU evaluations, retrofit studies, and concrete health assessment work."
+        path="/portfolio"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Ingeniare Portfolio",
+          url: "https://www.ingeniare-sec.com/portfolio",
+        }}
+      />
+      <section className="section portfolio-page">
+        <div className="container">
         <Motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -226,32 +239,32 @@ const PortfolioPage = () => {
             future-ready design.
           </p>
         </Motion.div>
-      </div>
+        </div>
 
-      <Motion.section
-        className="portfolio-metrics"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        {metrics.map((metric) => {
-          const Icon = metric.icon;
-          return (
-            <div className="portfolio-metric-item" key={metric.line1}>
-              <div className="portfolio-metric-icon">
-                <Icon />
+        <Motion.section
+          className="portfolio-metrics"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          {metrics.map((metric) => {
+            const Icon = metric.icon;
+            return (
+              <div className="portfolio-metric-item" key={metric.line1}>
+                <div className="portfolio-metric-icon">
+                  <Icon />
+                </div>
+                <div className="portfolio-metric-value">{metric.value}</div>
+                <div className="portfolio-metric-text">
+                  <span>{metric.line1}</span>
+                  <span>{metric.line2}</span>
+                </div>
               </div>
-              <div className="portfolio-metric-value">{metric.value}</div>
-              <div className="portfolio-metric-text">
-                <span>{metric.line1}</span>
-                <span>{metric.line2}</span>
-              </div>
-            </div>
-          );
-        })}
-      </Motion.section>
+            );
+          })}
+        </Motion.section>
 
-      <div className="container">
+        <div className="container">
         <div className="row mt-4 gy-4">
           {visibleProjects.map((project, index) => (
             <div className="col-md-6" key={project.id}>
@@ -382,106 +395,109 @@ const PortfolioPage = () => {
             </Link>
           </div>
         </section>
-      </div>
+        </div>
 
-      <Modal
-        show={!!selectedProject}
-        onHide={handleCloseModal}
-        size="lg"
-        centered
-        className="portfolio-modal"
-      >
-        {selectedProject && (
-          <>
-            <Modal.Header closeButton>
-              <div className="w-100">
-                <p className="modal-category">{selectedProject.category}</p>
-                <h2 className="modal-title">{selectedProject.name}</h2>
-                <div className="modal-meta">
-                  <span
-                    className={`status-dot status-${selectedProject.status}`}
-                  />
-                  <span className="modal-status">
-                    {selectedProject.status === "ongoing"
-                      ? "Ongoing"
-                      : "Completed"}
-                  </span>
-                  <span className="modal-year">{selectedProject.date}</span>
-                  <span className="modal-location">
-                    {selectedProject.location}
-                  </span>
+        <Modal
+          show={!!selectedProject}
+          onHide={handleCloseModal}
+          size="lg"
+          centered
+          className="portfolio-modal"
+        >
+          {selectedProject && (
+            <>
+              <Modal.Header closeButton>
+                <div className="w-100">
+                  <p className="modal-category">{selectedProject.category}</p>
+                  <h2 className="modal-title">{selectedProject.name}</h2>
+                  <div className="modal-meta">
+                    <span
+                      className={`status-dot status-${selectedProject.status}`}
+                    />
+                    <span className="modal-status">
+                      {selectedProject.status === "ongoing"
+                        ? "Ongoing"
+                        : "Completed"}
+                    </span>
+                    <span className="modal-year">{selectedProject.date}</span>
+                    <span className="modal-location">
+                      {selectedProject.location}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </Modal.Header>
+              </Modal.Header>
 
-            <Modal.Body>
-              <Row className="gy-4">
-                <Col md={6}>
-                  <div className="modal-text-block">
-                    <p className="modal-scope">
-                      <span className="scope-label">Scope:</span>{" "}
-                      {selectedProject.scope}
-                    </p>
-                    <p className="modal-description">
-                      {selectedProject.description}
-                    </p>
-                  </div>
-                </Col>
-
-                <Col md={6}>
-                  <div className="modal-images-block">
-                    {selectedProject.images &&
-                    selectedProject.images.length > 0 ? (
-                      <>
-                        <div className="modal-image-main">
-                          <img
-                            src={selectedProject.images[activeImageIndex]}
-                            alt={selectedProject.name}
-                          />
-                        </div>
-
-                        <div className="modal-thumbs">
-                          {selectedProject.images.map((img, idx) => (
-                            <button
-                              key={img}
-                              type="button"
-                              className={`thumb-btn ${
-                                idx === activeImageIndex ? "active" : ""
-                              }`}
-                              onClick={() => setActiveImageIndex(idx)}
-                            >
-                              <img
-                                src={img}
-                                alt={`${selectedProject.name} ${idx + 1}`}
-                              />
-                            </button>
-                          ))}
-                        </div>
-                      </>
-                    ) : (
-                      <p className="no-images-text">Project images to follow.</p>
-                    )}
-
-                    <div className="modal-actions">
-                      <Link className="modal-link-btn" to="/contact">
-                        Request Company Profile
-                      </Link>
-                      <Button
-                        variant="outline-secondary"
-                        className="modal-close-btn"
-                        onClick={handleCloseModal}
-                      >
-                        Close
-                      </Button>
+              <Modal.Body>
+                <Row className="gy-4">
+                  <Col md={6}>
+                    <div className="modal-text-block">
+                      <p className="modal-scope">
+                        <span className="scope-label">Scope:</span>{" "}
+                        {selectedProject.scope}
+                      </p>
+                      <p className="modal-description">
+                        {selectedProject.description}
+                      </p>
                     </div>
-                  </div>
-                </Col>
-              </Row>
-            </Modal.Body>
-          </>
-        )}
-      </Modal>
-    </section>
+                  </Col>
+
+                  <Col md={6}>
+                    <div className="modal-images-block">
+                      {selectedProject.images &&
+                      selectedProject.images.length > 0 ? (
+                        <>
+                          <div className="modal-image-main">
+                            <img
+                              src={selectedProject.images[activeImageIndex]}
+                              alt={selectedProject.name}
+                            />
+                          </div>
+
+                          <div className="modal-thumbs">
+                            {selectedProject.images.map((img, idx) => (
+                              <button
+                                key={img}
+                                type="button"
+                                className={`thumb-btn ${
+                                  idx === activeImageIndex ? "active" : ""
+                                }`}
+                                onClick={() => setActiveImageIndex(idx)}
+                              >
+                                <img
+                                  src={img}
+                                  alt={`${selectedProject.name} ${idx + 1}`}
+                                />
+                              </button>
+                            ))}
+                          </div>
+                        </>
+                      ) : (
+                        <p className="no-images-text">
+                          Project images to follow.
+                        </p>
+                      )}
+
+                      <div className="modal-actions">
+                        <Link className="modal-link-btn" to="/contact">
+                          Request Company Profile
+                        </Link>
+                        <Button
+                          variant="outline-secondary"
+                          className="modal-close-btn"
+                          onClick={handleCloseModal}
+                        >
+                          Close
+                        </Button>
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
+              </Modal.Body>
+            </>
+          )}
+        </Modal>
+      </section>
+    </>
   );
 };
 

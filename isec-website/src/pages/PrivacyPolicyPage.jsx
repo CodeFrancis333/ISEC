@@ -1,18 +1,15 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import Seo from "../components/seo/Seo.jsx";
 
 const PrivacyPolicyPage = () => {
   return (
     <section className="legal-page privacy-page">
-      <Helmet>
-        <title>Privacy Policy | Ingeniare Structural Engineering Consultancy</title>
-        <meta
-          name="description"
-          content="Learn how Ingeniare Structural Engineering Consultancy (ISEC) collects, uses, and protects your personal data for project inquiries, collaborations, and services."
-        />
-        <meta name="robots" content="index,follow" />
-      </Helmet>
+      <Seo
+        title="Privacy Policy | Ingeniare Structural Engineering Consultancy"
+        description="Learn how Ingeniare Structural Engineering Consultancy collects, uses, and protects your personal data for project inquiries, collaborations, and services."
+        path="/privacy-policy"
+      />
 
       <div className="legal-container">
         <header className="legal-header">
@@ -36,13 +33,15 @@ const PrivacyPolicyPage = () => {
           <ul>
             <li>Basic contact details (name, email address, phone number)</li>
             <li>
-              Company or organization details (firm name, role/position, location)
+              Company or organization details (firm name, role/position,
+              location)
             </li>
             <li>
               Project information shared through forms, emails, or meetings
             </li>
             <li>
-              Technical documents you voluntarily provide (plans, reports, photos)
+              Technical documents you voluntarily provide (plans, reports,
+              photos)
             </li>
           </ul>
 
@@ -52,9 +51,7 @@ const PrivacyPolicyPage = () => {
             <li>Responding to inquiries and project requests</li>
             <li>Preparing proposals, quotations, and technical evaluations</li>
             <li>Coordinating with you and your project team</li>
-            <li>
-              Sending service-related updates, when you have given consent
-            </li>
+            <li>Sending service-related updates, when you have given consent</li>
           </ul>
 
           <h2>3. Data Protection &amp; Security</h2>

@@ -1,18 +1,15 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import Seo from "../components/seo/Seo.jsx";
 
 const EngineeringCompliancePage = () => {
   return (
     <section className="legal-page compliance-page">
-      <Helmet>
-        <title>Engineering Compliance Statements | Ingeniare Structural Engineering</title>
-        <meta
-          name="description"
-          content="Read Ingeniare Structural Engineering Consultancy’s compliance statements on codes, standards, professional practice, and ethical structural engineering."
-        />
-        <meta name="robots" content="index,follow" />
-      </Helmet>
+      <Seo
+        title="Engineering Compliance Statements | Ingeniare Structural Engineering"
+        description="Read Ingeniare Structural Engineering Consultancy's compliance statements on codes, standards, professional practice, and ethical structural engineering."
+        path="/engineering-compliance-statements"
+      />
 
       <div className="legal-container">
         <header className="legal-header">

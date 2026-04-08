@@ -1,12 +1,25 @@
 import React from "react";
 import { motion as Motion } from "framer-motion";
+import Seo from "../components/seo/Seo.jsx";
 
 const FORM_NAME = "contact";
 
 const ContactPage = () => {
   return (
-    <section className="section">
-      <div className="container">
+    <>
+      <Seo
+        title="Contact Ingeniare | Structural Engineering Inquiries"
+        description="Contact Ingeniare Structural Engineering Consultancy for structural design, evaluation, verification, NDT assessment, and project collaboration inquiries."
+        path="/contact"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Contact Ingeniare",
+          url: "https://www.ingeniare-sec.com/contact",
+        }}
+      />
+      <section className="section">
+        <div className="container">
         <Motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -143,8 +156,9 @@ const ContactPage = () => {
             </Motion.div>
           </div>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 };
 

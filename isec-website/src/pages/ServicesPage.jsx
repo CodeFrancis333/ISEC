@@ -7,6 +7,7 @@ import {
   FaShieldAlt,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Seo from "../components/seo/Seo.jsx";
 
 const serviceBlocks = [
   {
@@ -136,8 +137,24 @@ const metrics = [
 
 const ServicesPage = () => {
   return (
-    <section className="services-page">
-      <div className="services-container">
+    <>
+      <Seo
+        title="Structural Engineering Services | Design, Evaluation, NDT, and Consultancy"
+        description="Explore Ingeniare's structural engineering services including structural analysis and design, building evaluation, concrete non-destructive testing, certifications, and consultancy support."
+        path="/services"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "Structural engineering services",
+          provider: {
+            "@type": "ProfessionalService",
+            name: "Ingeniare Structural Engineering Consultancy",
+          },
+          areaServed: "Philippines",
+        }}
+      />
+      <section className="services-page">
+        <div className="services-container">
         <Motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -192,31 +209,32 @@ const ServicesPage = () => {
             </div>
           </Motion.section>
         ))}
-      </div>
+        </div>
 
-      <Motion.section
-        className="services-metrics"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        {metrics.map((metric) => {
-          const Icon = metric.icon;
-          return (
-            <div className="services-metric-item" key={metric.line1}>
-              <div className="services-metric-icon">
-                <Icon />
+        <Motion.section
+          className="services-metrics"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          {metrics.map((metric) => {
+            const Icon = metric.icon;
+            return (
+              <div className="services-metric-item" key={metric.line1}>
+                <div className="services-metric-icon">
+                  <Icon />
+                </div>
+                <div className="services-metric-value">{metric.value}</div>
+                <div className="services-metric-text">
+                  <span>{metric.line1}</span>
+                  <span>{metric.line2}</span>
+                </div>
               </div>
-              <div className="services-metric-value">{metric.value}</div>
-              <div className="services-metric-text">
-                <span>{metric.line1}</span>
-                <span>{metric.line2}</span>
-              </div>
-            </div>
-          );
-        })}
-      </Motion.section>
-    </section>
+            );
+          })}
+        </Motion.section>
+      </section>
+    </>
   );
 };
 

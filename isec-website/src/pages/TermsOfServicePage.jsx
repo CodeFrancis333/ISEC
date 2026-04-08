@@ -1,18 +1,15 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import Seo from "../components/seo/Seo.jsx";
 
 const TermsOfServicePage = () => {
   return (
     <section className="legal-page terms-page">
-      <Helmet>
-        <title>Terms of Service | Ingeniare Structural Engineering Consultancy</title>
-        <meta
-          name="description"
-          content="Read the terms and conditions governing the use of Ingeniare Structural Engineering Consultancy’s website, services, and project engagements."
-        />
-        <meta name="robots" content="index,follow" />
-      </Helmet>
+      <Seo
+        title="Terms of Service | Ingeniare Structural Engineering Consultancy"
+        description="Read the terms and conditions governing the use of Ingeniare Structural Engineering Consultancy's website, services, and project engagements."
+        path="/terms-of-service"
+      />
 
       <div className="legal-container">
         <header className="legal-header">

@@ -1,11 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
+import Seo from "../components/seo/Seo.jsx";
 
 const ThankYouPage = () => {
   return (
-    <section className="section">
-      <div className="container">
+    <>
+      <Seo
+        title="Thank You | Ingeniare"
+        description="Inquiry submission confirmation for Ingeniare Structural Engineering Consultancy."
+        path="/thank-you"
+        robots="noindex,nofollow"
+      />
+      <section className="section">
+        <div className="container">
         <Motion.div
           className="card-isec p-4 p-md-5 text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -24,8 +32,9 @@ const ThankYouPage = () => {
             Back to Home
           </Link>
         </Motion.div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 };
 

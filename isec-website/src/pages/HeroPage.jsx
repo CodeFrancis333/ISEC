@@ -15,11 +15,23 @@ import {
   FaCogs,
 } from "react-icons/fa";
 
-import heroImage from "../assets/hero-cranes.jpg";
+import heroImage from "../assets/hero-cranes.webp";
+import Seo from "../components/seo/Seo.jsx";
 
 const HeroPage = () => {
   return (
     <>
+      <Seo
+        title="Structural Engineering Consultancy in the Philippines | Ingeniare"
+        description="Ingeniare Structural Engineering Consultancy delivers structural design, structural evaluation, code-compliant verification, and engineering support for projects across the Philippines."
+        path="/"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Ingeniare Structural Engineering Consultancy",
+          url: "https://www.ingeniare-sec.com/",
+        }}
+      />
       <section
         className="hero-landing"
         style={{ "--hero-image": `url(${heroImage})` }}

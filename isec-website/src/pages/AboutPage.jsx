@@ -3,10 +3,22 @@ import bgCore from "../assets/core-values-background.png";
 import wendiPic from "../assets/wendi.jfif";
 import edrickPic from "../assets/code.jpg";
 import { Link } from "react-router-dom";
+import Seo from "../components/seo/Seo.jsx";
 
 const AboutPage = () => {
   return (
     <div className="about-page">
+      <Seo
+        title="About Ingeniare | Structural Engineering Firm in Quezon, Philippines"
+        description="Learn about Ingeniare Structural Engineering Consultancy, our mission, design philosophy, founders, and our work with architects, contractors, developers, and LGUs."
+        path="/about"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "About Ingeniare",
+          url: "https://www.ingeniare-sec.com/about",
+        }}
+      />
 
       {/* ================== ABOUT INGENIARE ================== */}
       <section className="about-section">
