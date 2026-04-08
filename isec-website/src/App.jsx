@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout.jsx";
+import ScrollToTop from "./components/layout/ScrollToTop.jsx";
 
 import HeroPage from "./pages/HeroPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
@@ -16,22 +17,25 @@ import EngineeringCompliancePage from "./pages/EngineeringCompliancePage";
 
 function App() {
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<HeroPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/portfolio" element={<PortfolioPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/thank-you" element={<ThankYouPage />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-        <Route path="/terms-of-service" element={<TermsOfServicePage />} />
-        <Route
-          path="/engineering-compliance-statements"
-          element={<EngineeringCompliancePage />}
-        />
-      </Routes>
-    </Layout>
+    <>
+      <ScrollToTop />
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HeroPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/thank-you" element={<ThankYouPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+          <Route
+            path="/engineering-compliance-statements"
+            element={<EngineeringCompliancePage />}
+          />
+        </Routes>
+      </Layout>
+    </>
   );
 }
 
