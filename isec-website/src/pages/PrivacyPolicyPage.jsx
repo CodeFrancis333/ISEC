@@ -52,6 +52,11 @@ const PrivacyPolicyPage = () => {
             <li>Preparing proposals, quotations, and technical evaluations</li>
             <li>Coordinating with you and your project team</li>
             <li>Sending service-related updates, when you have given consent</li>
+            <li>
+              Understanding website traffic and improving user experience
+              through analytics tools such as Google Analytics, Microsoft
+              Clarity, and first-party internal page-view tracking
+            </li>
           </ul>
 
           <h2>3. Data Protection &amp; Security</h2>

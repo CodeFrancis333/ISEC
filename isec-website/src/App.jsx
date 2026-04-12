@@ -1,5 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import AnalyticsTracker from "./components/analytics/AnalyticsTracker.jsx";
+import ExternalAnalytics from "./components/analytics/ExternalAnalytics.jsx";
 import Layout from "./components/layout/Layout.jsx";
 import ScrollToTop from "./components/layout/ScrollToTop.jsx";
 
@@ -18,6 +20,8 @@ import EngineeringCompliancePage from "./pages/EngineeringCompliancePage";
 function App() {
   return (
     <>
+      <ExternalAnalytics />
+      <AnalyticsTracker />
       <ScrollToTop />
       <Layout>
         <Routes>
