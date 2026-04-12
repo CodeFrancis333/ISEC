@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || "";
-const CLARITY_PROJECT_ID = import.meta.env.VITE_CLARITY_PROJECT_ID || "";
+const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || "G-XP546DYYHR";
+const CLARITY_PROJECT_ID = import.meta.env.VITE_CLARITY_PROJECT_ID || "wabwot2iow";
 
 const loadScript = ({ id, src, async = true }) => {
   if (document.getElementById(id)) return;
