@@ -1131,7 +1131,8 @@ h1, h2, h3,
 .services-intro {
   font-size: 14px;
   line-height: 1.7;
-  max-width: 900px;
+  max-width: none;
+  width: 100%;
 }
 
 /* Each service block */
@@ -2037,7 +2038,6 @@ textarea {
 
 .section-subtitle,
 .portfolio-intro,
-.services-intro,
 .legal-intro {
   max-width: 70ch;
   line-height: 1.8;
@@ -2339,7 +2339,8 @@ textarea {
 }
 
 .services-container {
-  max-width: 1180px;
+  max-width: 1280px;
+  width: min(1280px, calc(100% - 4rem));
 }
 
 .service-block {
@@ -2657,11 +2658,11 @@ textarea {
 =============================== */
 
 body {
-  background: #f7f1ea;
+  background: #ffffff;
 }
 
 main {
-  background: #f7f1ea;
+  background: #ffffff;
 }
 
 .section,
@@ -2671,7 +2672,7 @@ main {
 .why-choose,
 .about-page .about-two-col-section,
 .core-section {
-  background-color: #f7f1ea;
+  background-color: #ffffff;
 }
 
 .section-title,
@@ -2712,8 +2713,8 @@ main {
 .about-page .founder-text,
 .portfolio-testimonials,
 .portfolio-cta {
-  background: #fffaf4;
-  border: 1px solid rgba(89, 8, 8, 0.1);
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
   border-radius: 14px;
   box-shadow: none;
   backdrop-filter: none;
@@ -2797,7 +2798,7 @@ main {
 }
 
 .why-choose {
-  background: #f7f1ea;
+  background: #ffffff;
 }
 
 .why-choose-right {
@@ -2856,7 +2857,10 @@ main {
 }
 
 .service-block {
-  padding: 1.5rem;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
 }
 
 .services-metrics,
@@ -2871,8 +2875,9 @@ main {
 }
 
 .section .form-control {
-  background: #fffaf4;
+  background: #ffffff;
   border-radius: 10px;
+  border-color: #dddddd;
 }
 
 .legal-container {
@@ -2882,6 +2887,51 @@ main {
 .isec-footer {
   background: #050505;
   color: #ffffff;
+}
+
+.hero-icon,
+.value-icon,
+.value-icon svg,
+.home-cert-icon,
+.home-cert-icon svg,
+.services-metric-icon svg,
+.portfolio-metric-icon svg,
+.footer-social-icon,
+.footer-social-icon svg,
+.footer-contact-icon,
+.footer-contact-icon svg {
+  color: #c9932f;
+}
+
+.value-icon,
+.home-cert-icon,
+.footer-social-icon {
+  border-color: #c9932f;
+}
+
+.home-value-strip .value-icon,
+.home-value-strip .value-icon svg {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.why-choose .why-choose-icon,
+.why-choose .why-choose-icon svg,
+.why-choose .why-choose-text-title {
+  color: var(--isec-maroon);
+}
+
+.about-philosophy .about-philo-title,
+.about-philosophy .about-philo-highlight {
+  color: #c9932f;
+}
+
+.about-philosophy .about-title-underline.philo-underline {
+  background-color: #c9932f;
+}
+
+.portfolio-card .portfolio-category {
+  color: #c9932f;
 }
 
 @media (max-width: 767.98px) {
