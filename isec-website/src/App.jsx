@@ -11,6 +11,7 @@ import ServicesPage from "./pages/ServicesPage.jsx";
 import PortfolioPage from "./pages/PortfolioPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import ThankYouPage from "./pages/ThankYouPage.jsx";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
 
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsOfServicePage from "./pages/TermsOfServicePage";
@@ -37,6 +38,7 @@ function App() {
             path="/engineering-compliance-statements"
             element={<EngineeringCompliancePage />}
           />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>
     </>

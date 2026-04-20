@@ -2934,6 +2934,31 @@ main {
   color: #c9932f;
 }
 
+.not-found-page {
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+}
+
+.not-found-content {
+  max-width: 680px;
+}
+
+.not-found-code {
+  color: #c9932f;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  margin-bottom: 0.75rem;
+}
+
+.not-found-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
 @media (max-width: 767.98px) {
   .home-value-strip {
     margin: 0;
