@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion as Motion } from "framer-motion";
 import {
   FaDraftingCompass,
@@ -136,6 +136,15 @@ const metrics = [
 ];
 
 const ServicesPage = () => {
+  const [expandedServices, setExpandedServices] = useState({});
+
+  const toggleService = (serviceTitle) => {
+    setExpandedServices((current) => ({
+      ...current,
+      [serviceTitle]: !current[serviceTitle],
+    }));
+  };
+
   return (
     <>
       <Seo
@@ -174,41 +183,68 @@ const ServicesPage = () => {
           </p>
         </Motion.div>
 
-        {serviceBlocks.map((service, index) => (
-          <Motion.section
-            key={service.title}
-            className="service-block"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 * index }}
-          >
-            <div className="service-number">{index + 1}</div>
+        {serviceBlocks.map((service, index) => {
+          const isExpanded = !!expandedServices[service.title];
+          const hasHiddenBullets = service.bullets.length > 4;
 
-            <div className="service-content">
-              <h2 className="service-title services-gold">{service.title}</h2>
+          return (
+            <Motion.section
+              key={service.title}
+              className="service-block"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 * index }}
+            >
+              <div className="service-number">{index + 1}</div>
 
-              <p className="service-paragraph">{service.intro}</p>
+              <div className="service-content">
+                <h2 className="service-title services-gold">{service.title}</h2>
 
-              <h3 className="service-subheading services-maroon">
-                Key Deliverables:
-              </h3>
-              <ul className="service-list">
-                {service.bullets.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+                <p className="service-paragraph">{service.intro}</p>
 
-              <div className="service-actions">
-                <Link to="/contact" className="service-btn primary">
-                  Inquire Service
-                </Link>
-                <Link to="/portfolio" className="service-btn ghost">
-                  View Portfolio
-                </Link>
+                <h3 className="service-subheading services-maroon">
+                  Key Deliverables:
+                </h3>
+                <ul
+                  className={`service-list ${
+                    isExpanded ? "service-list-expanded" : ""
+                  }`}
+                >
+                  {service.bullets.map((item, itemIndex) => (
+                    <li
+                      key={item}
+                      className={
+                        itemIndex >= 4 ? "service-list-extra-item" : undefined
+                      }
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                {hasHiddenBullets && (
+                  <button
+                    type="button"
+                    className="service-toggle-btn"
+                    onClick={() => toggleService(service.title)}
+                    aria-expanded={isExpanded}
+                  >
+                    {isExpanded ? "View less" : "View more"}
+                  </button>
+                )}
+
+                <div className="service-actions">
+                  <Link to="/contact" className="service-btn primary">
+                    Inquire Service
+                  </Link>
+                  <Link to="/portfolio" className="service-btn ghost">
+                    View Portfolio
+                  </Link>
+                </div>
               </div>
-            </div>
-          </Motion.section>
-        ))}
+            </Motion.section>
+          );
+        })}
         </div>
 
         <Motion.section
