@@ -95,6 +95,19 @@ const ContactPage = () => {
                 </div>
 
                 <div className="mb-3">
+                  <label className="form-label" htmlFor="contact-number">
+                    Contact Number
+                  </label>
+                  <input
+                    id="contact-number"
+                    type="tel"
+                    className="form-control"
+                    name="contactNumber"
+                    placeholder="+63 9XX XXX XXXX"
+                  />
+                </div>
+
+                <div className="mb-3">
                   <label className="form-label" htmlFor="contact-org">
                     Organization / Firm
                   </label>
