@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
 import Seo from "../components/seo/Seo.jsx";
 
@@ -38,8 +39,36 @@ const formatPhilippineContactNumber = (value) => {
 };
 
 const ContactPage = () => {
+  const navigate = useNavigate();
+
   const handleContactNumberInput = (event) => {
     event.target.value = formatPhilippineContactNumber(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      form.reset();
+      navigate("/thank-you");
+    } catch {
+      window.alert("Unable to submit your inquiry right now. Please try again.");
+    }
   };
 
   return (
@@ -93,6 +122,7 @@ const ContactPage = () => {
                 action="/thank-you.html"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
               >
                 <input type="hidden" name="form-name" value={FORM_NAME} />
 
