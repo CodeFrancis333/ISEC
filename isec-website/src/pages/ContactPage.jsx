@@ -4,7 +4,44 @@ import Seo from "../components/seo/Seo.jsx";
 
 const FORM_NAME = "contact";
 
+const formatPhilippineContactNumber = (value) => {
+  const digits = value.replace(/\D/g, "");
+  let localDigits = digits;
+
+  if (localDigits.startsWith("63")) {
+    localDigits = localDigits.slice(2);
+  } else if (localDigits.startsWith("0")) {
+    localDigits = localDigits.slice(1);
+  }
+
+  localDigits = localDigits.slice(0, 10);
+
+  const first = localDigits.slice(0, 3);
+  const second = localDigits.slice(3, 6);
+  const third = localDigits.slice(6, 10);
+
+  let formatted = "+63";
+
+  if (first) {
+    formatted += ` ${first}`;
+  }
+
+  if (second) {
+    formatted += ` ${second}`;
+  }
+
+  if (third) {
+    formatted += ` ${third}`;
+  }
+
+  return formatted;
+};
+
 const ContactPage = () => {
+  const handleContactNumberInput = (event) => {
+    event.target.value = formatPhilippineContactNumber(event.target.value);
+  };
+
   return (
     <>
       <Seo
@@ -103,7 +140,9 @@ const ContactPage = () => {
                     type="tel"
                     className="form-control"
                     name="contactNumber"
-                    placeholder="+63 9XX XXX XXXX"
+                    placeholder="+63 912 234 5678"
+                    inputMode="numeric"
+                    onInput={handleContactNumberInput}
                   />
                 </div>
 
