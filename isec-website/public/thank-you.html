@@ -10,11 +10,13 @@
     <link rel="canonical" href="https://www.ingeniare-sec.com/thank-you" />
     <style>
       :root {
-        --isec-bg: #0b1117;
-        --isec-surface: #f7f1e6;
-        --isec-text: #1f252c;
-        --isec-gold: #f3cb49;
-        --isec-maroon: #6f1d1b;
+        --isec-bg: #ffffff;
+        --isec-surface: #ffffff;
+        --isec-text: #111111;
+        --isec-muted: #4b4b4b;
+        --isec-border: #d9d9d9;
+        --isec-button: #590808;
+        --isec-gold: #c9932f;
       }
 
       * {
@@ -27,9 +29,7 @@
         display: grid;
         place-items: center;
         padding: 24px;
-        background:
-          radial-gradient(circle at top, rgba(243, 203, 73, 0.18), transparent 30%),
-          linear-gradient(180deg, #101820 0%, var(--isec-bg) 100%);
+        background: #ffffff;
         color: var(--isec-text);
         font-family: Georgia, "Times New Roman", serif;
       }
@@ -37,63 +37,98 @@
       .card {
         width: min(720px, 100%);
         background: var(--isec-surface);
-        border: 1px solid rgba(243, 203, 73, 0.3);
-        border-radius: 20px;
+        border: 1px solid var(--isec-border);
+        border-radius: 12px;
         padding: 40px 32px;
         text-align: center;
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
-      }
-
-      .eyebrow {
-        margin: 0 0 12px;
-        color: var(--isec-maroon);
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
       }
 
       h1 {
-        margin: 0 0 16px;
-        font-size: clamp(2rem, 4vw, 3rem);
+        margin: 0 0 12px;
+        font-size: clamp(2rem, 4vw, 2.6rem);
+        line-height: 1.1;
+        letter-spacing: 0;
+        color: var(--isec-gold);
       }
 
       p {
         margin: 0 auto;
-        max-width: 46ch;
-        line-height: 1.6;
-        font-size: 1.05rem;
+        max-width: 42ch;
+        line-height: 1.65;
+        font-size: 1rem;
+        color: var(--isec-muted);
+      }
+
+      .contact {
+        margin-top: 18px;
+        font-size: 0.95rem;
+        color: var(--isec-text);
+      }
+
+      .contact strong {
+        font-weight: 600;
       }
 
       .actions {
-        margin-top: 28px;
+        margin-top: 24px;
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
       }
 
       .button {
         display: inline-block;
         padding: 14px 22px;
         border-radius: 999px;
-        background: var(--isec-maroon);
+        background: var(--isec-button);
         color: #fff;
         text-decoration: none;
-        font-weight: 700;
+        font-weight: 600;
+        border: 1px solid var(--isec-button);
+      }
+
+      .button-outline {
+        background: transparent;
+        border: 1px solid var(--isec-gold);
+        color: var(--isec-gold);
       }
 
       .button:hover {
-        background: #591715;
+        color: #fff;
+      }
+
+      .button-outline:hover {
+        background: #fffaf0;
+        color: #8f6a12;
+        border-color: #8f6a12;
+      }
+
+      @media (max-width: 640px) {
+        .card {
+          padding: 36px 22px;
+        }
+
+        .actions {
+          flex-direction: column;
+        }
       }
     </style>
   </head>
   <body>
     <main class="card">
-      <p class="eyebrow">Inquiry Received</p>
-      <h1>Thank You</h1>
+      <h1>Thank you.</h1>
       <p>
-        Your inquiry has been submitted successfully. We will review your
-        message and get back to you through the email address you provided.
+        Your inquiry has been received. We&apos;ll get back to you through the
+        contact details you provided.
+      </p>
+      <p class="contact">
+        For urgent concerns: <strong>ingeniare.idc@gmail.com</strong> or
+        <strong> +63 951 235 9772</strong>
       </p>
       <div class="actions">
         <a class="button" href="/">Back to Home</a>
+        <a class="button button-outline" href="/contact">Send Another Inquiry</a>
       </div>
     </main>
   </body>
