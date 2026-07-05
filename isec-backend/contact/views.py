@@ -15,14 +15,20 @@ def _clean_text(value):
     return str(value or "").strip()
 
 
+def _load_json_body(request):
+    try:
+        return json.loads(request.body)
+    except json.JSONDecodeError:
+        return None
+
+
 @csrf_exempt
 def send_inquiry(request):
     if request.method != "POST":
         return JsonResponse({"error": "Only POST allowed"}, status=405)
 
-    try:
-        data = json.loads(request.body)
-    except json.JSONDecodeError:
+    data = _load_json_body(request)
+    if data is None:
         return JsonResponse({"error": "Invalid JSON format"}, status=400)
 
     name = _clean_text(data.get("name"))

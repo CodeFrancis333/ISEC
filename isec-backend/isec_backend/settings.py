@@ -133,21 +133,31 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL", default="no-reply@ingeniare.local")
+EMAIL_HOST = env("EMAIL_HOST", default="smtp.gmail.com")
+EMAIL_PORT = env.int("EMAIL_PORT", default=587)
+EMAIL_HOST_USER = env("EMAIL_HOST_USER", default="")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD", default="")
+EMAIL_USE_TLS = env.bool("EMAIL_USE_TLS", default=True)
+EMAIL_USE_SSL = env.bool("EMAIL_USE_SSL", default=False)
+
+DEFAULT_FROM_EMAIL = env(
+    "DEFAULT_FROM_EMAIL",
+    default=(EMAIL_HOST_USER or "no-reply@ingeniare.local"),
+)
 INQUIRY_RECEIVER_EMAIL = env(
     "INQUIRY_RECEIVER_EMAIL",
-    default="inquiries@ingeniare.local",
+    default=(EMAIL_HOST_USER or "inquiries@ingeniare.local"),
 )
 SENDGRID_API_KEY = env("SENDGRID_API_KEY", default="")
 
-EMAIL_BACKEND = env(
-    "EMAIL_BACKEND",
-    default=(
-        "anymail.backends.sendgrid.EmailBackend"
-        if SENDGRID_API_KEY
-        else "django.core.mail.backends.console.EmailBackend"
-    ),
-)
+if EMAIL_HOST_USER and EMAIL_HOST_PASSWORD:
+    default_email_backend = "django.core.mail.backends.smtp.EmailBackend"
+elif SENDGRID_API_KEY:
+    default_email_backend = "anymail.backends.sendgrid.EmailBackend"
+else:
+    default_email_backend = "django.core.mail.backends.console.EmailBackend"
+
+EMAIL_BACKEND = env("EMAIL_BACKEND", default=default_email_backend)
 
 ANYMAIL = (
     {

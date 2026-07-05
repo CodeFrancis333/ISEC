@@ -10,6 +10,7 @@ import AboutPage from "./pages/AboutPage.jsx";
 import ServicesPage from "./pages/ServicesPage.jsx";
 import PortfolioPage from "./pages/PortfolioPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
+import StructuralAssessmentGuidePage from "./pages/StructuralAssessmentGuidePage.jsx";
 import ThankYouPage from "./pages/ThankYouPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 
@@ -31,6 +32,10 @@ function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route
+            path="/free-structural-assessment-scope-guide"
+            element={<StructuralAssessmentGuidePage />}
+          />
           <Route path="/thank-you" element={<ThankYouPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-of-service" element={<TermsOfServicePage />} />
