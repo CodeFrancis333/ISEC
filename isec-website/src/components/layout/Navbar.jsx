@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { NavLink, Link } from "react-router-dom";
 
+const getNavLinkClassName = ({ isActive }) =>
+  `isec-nav-link${isActive ? " active" : ""}`;
+
 const IsecNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
@@ -49,23 +52,52 @@ const IsecNavbar = () => {
         <Navbar.Collapse id="isec-nav" className="justify-content-end">
           <Nav className="gap-4">
 
-            <NavLink to="/" end className="isec-nav-link" onClick={handleScrollTop}>
+            <NavLink
+              to="/"
+              end
+              className={getNavLinkClassName}
+              onClick={handleScrollTop}
+            >
               Home
             </NavLink>
 
-            <NavLink to="/about" className="isec-nav-link" onClick={handleScrollTop}>
+            <NavLink
+              to="/about"
+              className={getNavLinkClassName}
+              onClick={handleScrollTop}
+            >
               About
             </NavLink>
 
-            <NavLink to="/services" className="isec-nav-link" onClick={handleScrollTop}>
+            <NavLink
+              to="/services"
+              className={getNavLinkClassName}
+              onClick={handleScrollTop}
+            >
               Services
             </NavLink>
 
-            <NavLink to="/portfolio" className="isec-nav-link" onClick={handleScrollTop}>
+            <NavLink
+              to="/portfolio"
+              className={getNavLinkClassName}
+              onClick={handleScrollTop}
+            >
               Portfolio
             </NavLink>
 
-            <NavLink to="/contact" className="isec-nav-link" onClick={handleScrollTop}>
+            <NavLink
+              to="/free-structural-assessment-scope-guide"
+              className={getNavLinkClassName}
+              onClick={handleScrollTop}
+            >
+              Resource
+            </NavLink>
+
+            <NavLink
+              to="/contact"
+              className={getNavLinkClassName}
+              onClick={handleScrollTop}
+            >
               Contact
             </NavLink>
 
