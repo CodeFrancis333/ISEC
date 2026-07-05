@@ -227,8 +227,7 @@ const ContactPage = () => {
                 <strong>Mobile / Viber:</strong> +63 951 235 9772
               </p>
               <p className="small mb-2">
-                <strong>Location:</strong> Malabanban Norte, Candelaria,
-                Quezon, Philippines
+                <strong>Location:</strong> 10th Floor Parkway Corporate Center, Filinvest City, Alabang, Muntinlupa City, Philippines
               </p>
               <hr />
               <p className="small text-muted mb-0">

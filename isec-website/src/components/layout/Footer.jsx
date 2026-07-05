@@ -29,7 +29,7 @@ const Footer = () => {
                 STRUCTURAL ENGINEERING CONSULTANCY
               </div>
               <div className="footer-brand-tagline">
-                Geniusly Engineered. Where safety meets innovation.
+                Strength Begins with Certainty.
               </div>
             </div>
 
@@ -103,7 +103,7 @@ const Footer = () => {
                 <span className="footer-contact-icon">
                   <FaMapMarkerAlt />
                 </span>
-                Malabanban Norte, Candelaria, Quezon
+                10th Floor Parkway Corporate Center, Filinvest City, Alabang, Muntinlupa City, Philippines
               </li>
               <li>
                 <span className="footer-contact-icon">

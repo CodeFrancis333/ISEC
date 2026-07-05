@@ -20,8 +20,8 @@ const baseOrganizationSchema = {
   telephone: "+63 951 235 9772",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Candelaria",
-    addressRegion: "Quezon",
+    addressLocality: "Muntinlupa City",
+    addressRegion: "Metro Manila",
     addressCountry: "PH",
   },
   areaServed: "Philippines",

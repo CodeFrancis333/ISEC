@@ -51,7 +51,7 @@ const HeroPage = () => {
                 </h1>
 
                 <p className="hero-tagline mt-3">
-                  Geniusly Engineered. Where safety meets innovation.
+                  Strength Begins With Certainty.
                 </p>
 
                 <div className="d-flex flex-wrap gap-3 mt-4">
