@@ -86,29 +86,7 @@ const StructuralAssessmentGuidePage = () => {
 
       <section className="section guide-landing-page">
         <div className="container">
-          <Motion.div
-            className="guide-hero-card"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="guide-eyebrow">Free Resource</div>
-            <h1 className="guide-title">Free Structural Assessment Scope Guide</h1>
-            <p className="guide-lead">
-              Planning to request a Structural Integrity Evaluation for an
-              existing building?
-            </p>
-            <p className="guide-copy">
-              Download our free guide to know what scope items should be
-              considered before asking for quotations or preparing procurement
-              documents.
-            </p>
-            <a href="#guide-download-form" className="btn-isec-primary">
-              Download Guide
-            </a>
-          </Motion.div>
-
-          <div className="row justify-content-center mt-4">
+          <div className="row justify-content-center">
             <div className="col-lg-8">
               <Motion.div
                 id="guide-download-form"
@@ -120,14 +98,20 @@ const StructuralAssessmentGuidePage = () => {
                 <h2 className="h3 guide-form-title">
                   Free Structural Assessment Scope Guide
                 </h2>
+                <p className="guide-lead guide-form-lead">
+                  Planning to request a Structural Integrity Evaluation for an
+                  existing building?
+                </p>
                 <p className="guide-copy">
                   This guide is helpful for building owners, administrators,
-                  facility managers, procurement officers, and decision-makers
-                  who want a clearer and more professional basis for requesting
-                  structural assessment services.
+                  facility managers, and decision-makers who want a clearer and
+                  more professional basis for requesting structural assessment
+                  services.
                 </p>
                 <p className="guide-copy mb-4">
-                  Enter your email below to download the guide.
+                  Enter your email below to download the guide and understand
+                  what scope items should be considered before asking for
+                  quotations.
                 </p>
 
                 <form
