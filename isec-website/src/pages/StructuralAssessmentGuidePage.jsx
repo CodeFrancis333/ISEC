@@ -31,8 +31,9 @@ const StructuralAssessmentGuidePage = () => {
     setTouched(true);
     setErrorMessage("");
     setSuccessMessage("");
+    const normalizedEmail = email.trim().toLowerCase();
 
-    if (!emailIsValid) {
+    if (!event.currentTarget.reportValidity() || !isValidEmail(normalizedEmail)) {
       setErrorMessage("Enter a valid email address before downloading the guide.");
       return;
     }
@@ -42,6 +43,7 @@ const StructuralAssessmentGuidePage = () => {
     try {
       const form = event.currentTarget;
       const formData = new FormData(form);
+      formData.set("email", normalizedEmail);
       const response = await fetch("/", {
         method: "POST",
         headers: {
@@ -120,7 +122,6 @@ const StructuralAssessmentGuidePage = () => {
                   data-netlify="true"
                   data-netlify-honeypot="bot-field"
                   onSubmit={handleSubmit}
-                  noValidate
                 >
                   <input type="hidden" name="form-name" value={FORM_NAME} />
                   <input
@@ -151,6 +152,7 @@ const StructuralAssessmentGuidePage = () => {
                     onBlur={() => setTouched(true)}
                     placeholder="you@example.com"
                     autoComplete="email"
+                    inputMode="email"
                     required
                   />
 
