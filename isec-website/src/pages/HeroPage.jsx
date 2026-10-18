@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
 import {
@@ -16,9 +17,35 @@ import {
 } from "react-icons/fa";
 
 import heroImage from "../assets/hero-cranes.webp";
+import birBadge from "../assets/ISEC_BIR_BADGE.jpeg";
 import Seo from "../components/seo/Seo.jsx";
 
 const HeroPage = () => {
+  const heroRef = useRef(null);
+  const [badgeVisible, setBadgeVisible] = useState(true);
+  const [autoDismiss, setAutoDismiss] = useState(true);
+
+  useEffect(() => {
+    if (!autoDismiss) return;
+    let timer;
+    const observer = new IntersectionObserver(([entry]) => {
+      clearTimeout(timer);
+      if (entry.isIntersecting) {
+        timer = setTimeout(() => setBadgeVisible(false), 5000);
+      }
+    });
+    observer.observe(heroRef.current);
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, [autoDismiss]);
+
+  const toggleBadge = () => {
+    setAutoDismiss(false);
+    setBadgeVisible((visible) => !visible);
+  };
+
   return (
     <>
       <Seo
@@ -33,12 +60,13 @@ const HeroPage = () => {
         }}
       />
       <section
+        ref={heroRef}
         className="hero-landing"
         style={{ "--hero-image": `url(${heroImage})` }}
       >
         <div className="container hero-landing-inner">
-          <div className="row">
-            <div className="col-lg-8">
+          <div className="row align-items-center gy-4">
+            <div className="col-lg-7">
               <Motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -83,6 +111,31 @@ const HeroPage = () => {
                   }}
                 />
               </Motion.div>
+            </div>
+            <div className="col-lg-5 hero-bir-column">
+              <div className="hero-bir-overlay">
+                <div
+                  id="hero-bir-badge"
+                  className={`hero-bir-panel${badgeVisible ? "" : " is-hidden"}`}
+                  aria-hidden={!badgeVisible}
+                >
+                  <img
+                    src={birBadge}
+                    alt="Ingeniare BIR registered badge for 2026, with registration verification QR code"
+                    width="514"
+                    height="179"
+                  />
+                </div>
+                <button
+                  type="button"
+                  className="hero-bir-toggle"
+                  aria-expanded={badgeVisible}
+                  aria-controls="hero-bir-badge"
+                  onClick={toggleBadge}
+                >
+                  {badgeVisible ? "Hide BIR badge" : "Show BIR badge"}
+                </button>
+              </div>
             </div>
           </div>
         </div>

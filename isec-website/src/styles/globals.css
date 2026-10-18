@@ -109,6 +109,79 @@ body {
   margin-top: 0.75rem;
 }
 
+.hero-bir-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.85rem;
+  padding: 1.5rem 0;
+}
+
+.hero-bir-panel {
+  width: 100%;
+  padding: clamp(0.75rem, 1.5vw, 1.5rem);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 240ms ease, visibility 240ms ease;
+}
+
+.hero-bir-panel.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.hero-bir-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+
+.hero-bir-toggle {
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 999px;
+  padding: 0.6rem 1.1rem;
+  background: rgba(40, 7, 7, 0.85);
+  color: #fff;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.hero-bir-toggle:hover {
+  background: var(--isec-maroon);
+}
+
+.hero-bir-toggle:focus-visible {
+  outline: 3px solid var(--isec-gold);
+  outline-offset: 4px;
+}
+
+@media (max-width: 991.98px) {
+  .hero-landing-inner {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .hero-bir-overlay {
+    max-width: 540px;
+    padding: 0;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bir-panel {
+    transition: none;
+  }
+}
+
 .hero-bottom-caption {
   margin-top: 1.5rem;
   font-size: 0.95rem;
