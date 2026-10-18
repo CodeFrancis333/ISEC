@@ -246,11 +246,11 @@ const HeroPage = () => {
                   </p>
                 </div>
 
-                <Link to="/portfolio" className="btn-why-resources">
+                <Link to="/resources" className="btn-why-resources">
                   View Ingeniare Resources
                 </Link>
                 <div className="why-choose-caption">
-                  View past projects &amp; feedbacks
+                  Explore guides and upcoming engineering tools
                 </div>
               </div>
             </div>

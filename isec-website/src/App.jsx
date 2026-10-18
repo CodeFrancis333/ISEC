@@ -6,6 +6,7 @@ import Layout from "./components/layout/Layout.jsx";
 import ScrollToTop from "./components/layout/ScrollToTop.jsx";
 
 import HeroPage from "./pages/HeroPage.jsx";
+import ResourcesPage from "./pages/ResourcesPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import ServicesPage from "./pages/ServicesPage.jsx";
 import PortfolioPage from "./pages/PortfolioPage.jsx";
@@ -31,6 +32,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route
             path="/free-structural-assessment-scope-guide"

@@ -86,11 +86,11 @@ const IsecNavbar = () => {
             </NavLink>
 
             <NavLink
-              to="/free-structural-assessment-scope-guide"
+              to="/resources"
               className={getNavLinkClassName}
               onClick={handleScrollTop}
             >
-              Resource
+              Resources
             </NavLink>
 
             <NavLink
