@@ -7,6 +7,7 @@ import ScrollToTop from "./components/layout/ScrollToTop.jsx";
 
 import HeroPage from "./pages/HeroPage.jsx";
 import ResourcesPage from "./pages/ResourcesPage.jsx";
+import CrackMappingPage from "./pages/CrackMappingPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import ServicesPage from "./pages/ServicesPage.jsx";
 import PortfolioPage from "./pages/PortfolioPage.jsx";
@@ -35,6 +36,7 @@ function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
+          <Route path="/resources/crack-mapping" element={<CrackMappingPage />} />
           <Route path="/resources/steel-deck-design" element={<Suspense fallback={<p className="container py-5" role="status">Loading steel deck design...</p>}><SteelDeckPage /></Suspense>} />
           <Route path="/resources/nscp-2015-wind-map" element={<Suspense fallback={<p className="container py-5" role="status">Loading wind map…</p>}><WindMapPage /></Suspense>} />
           <Route path="/contact" element={<ContactPage />} />

@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postbuild": "node scripts/prerender.mjs && node scripts/validate-seo.mjs",
+    "validate:seo": "node scripts/validate-seo.mjs",
     "lint": "eslint .",
     "typecheck:wind": "tsc -p tsconfig.wind.json",
     "test:wind": "tsx --test src/features/wind/*.test.ts",

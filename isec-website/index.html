@@ -5,7 +5,7 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" href="/Ingeniare-Logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ingeniare Structural Engineering Consultancy</title>
+    <title>INGENIARE STRUCTURAL ENGINEERING CONSULTANCY</title>
     <meta
       name="description"
       content="Ingeniare Structural Engineering Consultancy provides structural design, evaluation, verification, and concrete assessment services for projects across the Philippines."
@@ -14,7 +14,7 @@
     <link rel="canonical" href="https://www.ingeniare-sec.com/" />
     <meta
       property="og:title"
-      content="Ingeniare Structural Engineering Consultancy"
+      content="INGENIARE STRUCTURAL ENGINEERING CONSULTANCY"
     />
     <meta
       property="og:description"
@@ -63,6 +63,18 @@
       <input type="text" name="bot-field" />
     </form>
     <div id="root"></div>
+    <form name="crack-mapping-download" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="crack-mapping-download" />
+      <input type="email" name="email" />
+      <input name="bot-field" />
+    </form>
+    <form name="crack-mapping-feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="crack-mapping-feedback" />
+      <input type="email" name="email" />
+      <input name="device" />
+      <textarea name="feedback"></textarea>
+      <input name="bot-field" />
+    </form>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

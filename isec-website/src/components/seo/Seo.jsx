@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-const SITE_NAME = "Ingeniare Structural Engineering Consultancy";
+const SITE_NAME = "INGENIARE STRUCTURAL ENGINEERING CONSULTANCY";
 const SITE_URL = "https://www.ingeniare-sec.com";
 const DEFAULT_TITLE = "Ingeniare Structural Engineering Consultancy | Structural Engineers in the Philippines";
 const DEFAULT_DESCRIPTION =
@@ -11,8 +11,9 @@ const DEFAULT_IMAGE = `${SITE_URL}/Ingeniare-Logo.png`;
 const baseOrganizationSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": `${SITE_URL}/#organization`,
   name: SITE_NAME,
-  alternateName: "ISEC",
+  alternateName: ["Ingeniare", "ISEC", "Ingeniare Structural Engineering Consultancy"],
   url: SITE_URL,
   logo: DEFAULT_IMAGE,
   image: DEFAULT_IMAGE,
@@ -20,6 +21,7 @@ const baseOrganizationSchema = {
   telephone: "+63 951 235 9772",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "10th Floor Parkway Corporate Center, Filinvest City, Alabang",
     addressLocality: "Muntinlupa City",
     addressRegion: "Metro Manila",
     addressCountry: "PH",
@@ -27,7 +29,6 @@ const baseOrganizationSchema = {
   areaServed: "Philippines",
   sameAs: [
     "https://www.facebook.com/profile.php?id=61555895965392",
-    "https://www.linkedin.com",
   ],
 };
 
@@ -36,12 +37,22 @@ const Seo = ({
   description = DEFAULT_DESCRIPTION,
   path = "/",
   image = DEFAULT_IMAGE,
+  imageAlt = "INGENIARE STRUCTURAL ENGINEERING CONSULTANCY",
   robots = "index,follow",
   type = "website",
   schema,
 }) => {
   const canonicalUrl = `${SITE_URL}${path}`;
-  const schemaList = [baseOrganizationSchema];
+  const schemaList = [baseOrganizationSchema, {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    url: `${SITE_URL}/`,
+    name: SITE_NAME,
+    alternateName: "Ingeniare",
+    inLanguage: "en-PH",
+    publisher: { "@id": `${SITE_URL}/#organization` },
+  }];
 
   if (schema) {
     schemaList.push(...(Array.isArray(schema) ? schema : [schema]));
@@ -60,15 +71,18 @@ const Seo = ({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={image} />
+      <meta property="og:image:alt" content={imageAlt} />
+      <meta property="og:locale" content="en_PH" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+      <meta name="twitter:image:alt" content={imageAlt} />
 
       {schemaList.map((item, index) => (
         <script key={index} type="application/ld+json">
-          {JSON.stringify(item)}
+          {JSON.stringify(item).replace(/</g, "\\u003c")}
         </script>
       ))}
     </Helmet>

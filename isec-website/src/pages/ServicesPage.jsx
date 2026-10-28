@@ -148,7 +148,7 @@ const ServicesPage = () => {
   return (
     <>
       <Seo
-        title="Structural Engineering Services | Design, Evaluation, NDT, and Consultancy"
+        title="Structural Design, Evaluation & NDT Services | Ingeniare"
         description="Explore Ingeniare's structural engineering services including structural analysis and design, building evaluation, concrete non-destructive testing, certifications, and consultancy support."
         path="/services"
         schema={{

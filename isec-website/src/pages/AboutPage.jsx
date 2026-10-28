@@ -9,7 +9,7 @@ const AboutPage = () => {
   return (
     <div className="about-page">
       <Seo
-        title="About Ingeniare | Structural Engineering Firm in Quezon, Philippines"
+        title="About Ingeniare | Structural Engineers in the Philippines"
         description="Learn about Ingeniare Structural Engineering Consultancy, our mission, design philosophy, founders, and our work with architects, contractors, developers, and LGUs."
         path="/about"
         schema={{

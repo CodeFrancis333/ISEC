@@ -4,7 +4,7 @@ import Seo from "../components/seo/Seo.jsx";
 
 const FORM_NAME = "structural-assessment-scope-guide";
 const GUIDE_DOWNLOAD_PATH = "/downloads/structural-assessment-scope-guide.pdf";
-const GUIDE_DOWNLOAD_URL = `${window.location.origin}${GUIDE_DOWNLOAD_PATH}`;
+const GUIDE_DOWNLOAD_URL = GUIDE_DOWNLOAD_PATH;
 
 const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 
@@ -97,9 +97,9 @@ const StructuralAssessmentGuidePage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.1 }}
               >
-                <h2 className="h3 guide-form-title">
+                <h1 className="h3 guide-form-title">
                   Free Structural Assessment Scope Guide
-                </h2>
+                </h1>
                 <p className="guide-lead guide-form-lead">
                   Planning to request a Structural Integrity Evaluation for an
                   existing building?

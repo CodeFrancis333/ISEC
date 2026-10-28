@@ -5,6 +5,15 @@ import "../styles/resources.css";
 
 const resources = [
   {
+    title: "Crack Mapping",
+    description: "Meet our free Android alpha for offline AI crack tracing. Explore its current limitations and help Ingeniare Research improve it.",
+    icon: <FaProjectDiagram />,
+    category: "Ingeniare Research",
+    path: "/resources/crack-mapping",
+    status: "Alpha / Android",
+    action: "Explore crack mapping",
+  },
+  {
     title: "Free Structural Scope Guide",
     description: "Plan a structural assessment with a clearer scope before requesting quotations or preparing procurement documents.",
     icon: <FaBookOpen />,
@@ -47,8 +56,8 @@ export default function ResourcesPage() {
   return (
     <>
       <Seo
-        title="Resources | Ingeniare Structural Engineering Consultancy"
-        description="Explore Ingeniare's free structural scope guide and upcoming engineering maps and design tools for the Philippines."
+        title="Free Engineering Tools & Resources | Ingeniare Philippines"
+        description="Explore Ingeniare's free engineering resources: offline Android crack mapping, a structural assessment guide, a Philippine wind map, and steel deck calculations."
         path="/resources"
       />
       <section className="resources-header">

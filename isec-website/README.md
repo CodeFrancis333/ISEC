@@ -1,4 +1,6 @@
-# React + Vite
+# Ingeniare website
+
+Run `npm run build` for production. Its postbuild step generates searchable HTML for every public route and validates SEO output. Deploy the full `dist` directory. See [SEO.md](SEO.md) for route maintenance and deployment checks.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
