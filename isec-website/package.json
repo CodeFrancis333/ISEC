@@ -7,20 +7,33 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
+    "typecheck:wind": "tsc -p tsconfig.wind.json",
+    "test:wind": "tsx --test src/features/wind/*.test.ts",
+    "lint:wind": "eslint src/features/wind src/App.jsx src/pages/ResourcesPage.jsx",
+    "validate:wind": "tsx scripts/validate-wind-release.ts",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@turf/boolean-point-in-polygon": "^7.4.0",
+    "@turf/boolean-point-on-line": "^7.4.0",
+    "@turf/boolean-valid": "^7.4.0",
+    "@turf/helpers": "^7.4.0",
     "bootstrap": "^5.3.8",
     "framer-motion": "^12.23.24",
+    "jspdf": "^4.2.1",
+    "maplibre-gl": "^6.15.0",
     "react": "^19.2.0",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.2.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^5.5.0",
-    "react-router-dom": "^7.10.0"
+    "react-router-dom": "^7.10.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@types/geojson": "^7946.0.16",
+    "@types/node": "^26.6.5",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
@@ -28,6 +41,9 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.71.2",
     "vite": "^7.2.4"
   }
 }

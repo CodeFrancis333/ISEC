@@ -9,6 +9,14 @@ isec-website/node_modules/
 isec-website/dist/
 
 # === OS / Editor ===
+.tools/
+wind-map/private/
+wind-map/gis/outputs/
+wind-map/gis/.venv/
+wind-map/**/__pycache__/
 .vscode/
 .DS_Store
 Thumbs.db
+.pdf-tools/
+.pdf-render/
+tmp/pdfs/

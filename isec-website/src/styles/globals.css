@@ -2562,6 +2562,8 @@ textarea {
 @media (max-width: 991.98px) {
   .isec-navbar-brand {
     max-width: calc(100% - 4rem);
+    white-space: normal;
+    overflow-wrap: anywhere;
     font-size: 0.78rem;
     letter-spacing: 0.05em;
   }

@@ -13,9 +13,12 @@ const resources = [
   },
   {
     title: "NSCP 2015 Wind Speed Map",
-    description: "A planned map for exploring wind speeds across the Philippines under NSCP 2015.",
+    description: "Explore Philippine locations and NSCP occupancy categories. Wind-speed data validation is in progress.",
     icon: <FaWind />,
     category: "Wind engineering",
+    path: "/resources/nscp-2015-wind-map",
+    status: "Map preview",
+    action: "Open wind map",
   },
   {
     title: "Spectral Acceleration Map of Philippines",
@@ -31,9 +34,12 @@ const resources = [
   },
   {
     title: "Steel Deck Design",
-    description: "A planned design tool for steel deck systems.",
+    description: "Review steel deck gravity calculations with visible formulas, catalog comparisons and an exportable PDF calculation report.",
     icon: <FaLayerGroup />,
     category: "Structural design",
+    path: "/resources/steel-deck-design",
+    status: "Preliminary worksheet",
+    action: "Open steel deck design",
   },
 ];
 
@@ -55,18 +61,18 @@ export default function ResourcesPage() {
       <section className="section resources-library" aria-label="Engineering resources">
         <div className="container">
           <div className="resources-grid">
-            {resources.map(({ title, description, icon, category, path }) => (
+            {resources.map(({ title, description, icon, category, path, status, action }) => (
               <article className={`resource-card${path ? " resource-card-available" : ""}`} key={title}>
                 <div className="resource-card-top">
                   <span className="resource-icon" aria-hidden="true">{icon}</span>
-                  <span className={`resource-status${path ? " is-available" : ""}`}>{path ? "Available now Â· Free" : "Coming soon"}</span>
+                  <span className={`resource-status${path ? " is-available" : ""}`}>{status || (path ? "Available now / Free" : "Coming soon")}</span>
                 </div>
                 <p className="resource-category">{category}</p>
                 <h2>{title}</h2>
                 <p className="resource-description">{description}</p>
                 <div className="resource-card-action">
                   {path ? (
-                    <Link to={path} className="resource-link">Get the free guide <FaArrowRight aria-hidden="true" /></Link>
+                    <Link to={path} className="resource-link">{action || "Get the free guide"} <FaArrowRight aria-hidden="true" /></Link>
                   ) : (
                     <span className="resource-planned">Planned for development</span>
                   )}

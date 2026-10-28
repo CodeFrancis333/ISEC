@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import AnalyticsTracker from "./components/analytics/AnalyticsTracker.jsx";
 import ExternalAnalytics from "./components/analytics/ExternalAnalytics.jsx";
@@ -18,6 +18,8 @@ import NotFoundPage from "./pages/NotFoundPage.jsx";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsOfServicePage from "./pages/TermsOfServicePage";
 import EngineeringCompliancePage from "./pages/EngineeringCompliancePage";
+const WindMapPage = lazy(() => import("./features/wind/WindMapPage.tsx"));
+const SteelDeckPage = lazy(() => import("./features/deck/SteelDeckPage.jsx"));
 
 
 function App() {
@@ -33,6 +35,8 @@ function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
+          <Route path="/resources/steel-deck-design" element={<Suspense fallback={<p className="container py-5" role="status">Loading steel deck design...</p>}><SteelDeckPage /></Suspense>} />
+          <Route path="/resources/nscp-2015-wind-map" element={<Suspense fallback={<p className="container py-5" role="status">Loading wind map…</p>}><WindMapPage /></Suspense>} />
           <Route path="/contact" element={<ContactPage />} />
           <Route
             path="/free-structural-assessment-scope-guide"

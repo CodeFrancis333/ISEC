@@ -19,6 +19,9 @@
     <loc>https://www.ingeniare-sec.com/resources</loc>
   </url>
   <url>
+    <loc>https://www.ingeniare-sec.com/resources/nscp-2015-wind-map</loc>
+  </url>
+  <url>
     <loc>https://www.ingeniare-sec.com/free-structural-assessment-scope-guide</loc>
   </url>
   <url>
@@ -29,5 +32,8 @@
   </url>
   <url>
     <loc>https://www.ingeniare-sec.com/engineering-compliance-statements</loc>
+  </url>
+  <url>
+    <loc>https://www.ingeniare-sec.com/resources/steel-deck-design</loc>
   </url>
 </urlset>
